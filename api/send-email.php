@@ -23,6 +23,8 @@ function sendJson($statusCode, $data)
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
+    header('Allow: POST');
+
     sendJson(405, [
         'success' => false,
         'message' => 'Method not allowed. This endpoint accepts POST only.'
@@ -31,115 +33,26 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 /*
 |--------------------------------------------------------------------------
-| Read .env
+| EmailJS configuration
 |--------------------------------------------------------------------------
+|
+| IMPORTANT:
+| These values come from Vercel Environment Variables.
+| Do NOT read .env from the GitHub repository.
+|
 */
 
-$envFile = dirname(__DIR__) . '/.env';
+$serviceId = getenv('EMAILJS_SERVICE_ID') ?: '';
 
-if (!file_exists($envFile)) {
+$templateId = getenv('EMAILJS_TEMPLATE_ID') ?: '';
 
-    sendJson(500, [
-        'success' => false,
-        'message' => '.env file not found.'
-    ]);
-}
+$publicKey = getenv('EMAILJS_PUBLIC_KEY') ?: '';
 
-if (!is_readable($envFile)) {
-
-    sendJson(500, [
-        'success' => false,
-        'message' => '.env file is not readable.'
-    ]);
-}
-
-$env = [];
-
-$lines = file(
-    $envFile,
-    FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
-);
-
-if ($lines === false) {
-
-    sendJson(500, [
-        'success' => false,
-        'message' => 'Unable to read .env file.'
-    ]);
-}
+$privateKey = getenv('EMAILJS_PRIVATE_KEY') ?: '';
 
 /*
 |--------------------------------------------------------------------------
-| Parse .env
-|--------------------------------------------------------------------------
-*/
-
-foreach ($lines as $line) {
-
-    $line = trim($line);
-
-    // Empty line
-    if ($line === '') {
-        continue;
-    }
-
-    // Comment
-    if (substr($line, 0, 1) === '#') {
-        continue;
-    }
-
-    // Invalid line
-    if (strpos($line, '=') === false) {
-        continue;
-    }
-
-    $parts = explode('=', $line, 2);
-
-    $key = trim($parts[0]);
-    $value = trim($parts[1]);
-
-    // Remove quotes if present
-    if (strlen($value) >= 2) {
-
-        $first = $value[0];
-        $last = $value[strlen($value) - 1];
-
-        if (
-            ($first === '"' && $last === '"') ||
-            ($first === "'" && $last === "'")
-        ) {
-            $value = substr($value, 1, -1);
-        }
-    }
-
-    $env[$key] = $value;
-}
-
-/*
-|--------------------------------------------------------------------------
-| EmailJS credentials
-|--------------------------------------------------------------------------
-*/
-
-$serviceId = isset($env['EMAILJS_SERVICE_ID'])
-    ? trim($env['EMAILJS_SERVICE_ID'])
-    : '';
-
-$templateId = isset($env['EMAILJS_TEMPLATE_ID'])
-    ? trim($env['EMAILJS_TEMPLATE_ID'])
-    : '';
-
-$publicKey = isset($env['EMAILJS_PUBLIC_KEY'])
-    ? trim($env['EMAILJS_PUBLIC_KEY'])
-    : '';
-
-$privateKey = isset($env['EMAILJS_PRIVATE_KEY'])
-    ? trim($env['EMAILJS_PRIVATE_KEY'])
-    : '';
-
-/*
-|--------------------------------------------------------------------------
-| Check configuration
+| Check EmailJS configuration
 |--------------------------------------------------------------------------
 */
 
@@ -147,7 +60,7 @@ if ($serviceId === '') {
 
     sendJson(500, [
         'success' => false,
-        'message' => 'EMAILJS_SERVICE_ID is missing in .env.'
+        'message' => 'EMAILJS_SERVICE_ID is missing in Vercel Environment Variables.'
     ]);
 }
 
@@ -155,7 +68,7 @@ if ($templateId === '') {
 
     sendJson(500, [
         'success' => false,
-        'message' => 'EMAILJS_TEMPLATE_ID is missing in .env.'
+        'message' => 'EMAILJS_TEMPLATE_ID is missing in Vercel Environment Variables.'
     ]);
 }
 
@@ -163,7 +76,7 @@ if ($publicKey === '') {
 
     sendJson(500, [
         'success' => false,
-        'message' => 'EMAILJS_PUBLIC_KEY is missing in .env.'
+        'message' => 'EMAILJS_PUBLIC_KEY is missing in Vercel Environment Variables.'
     ]);
 }
 
@@ -200,44 +113,32 @@ if (!is_array($input)) {
 */
 
 $firstName = trim(
-    isset($input['first_name'])
-        ? (string)$input['first_name']
-        : ''
+    (string)($input['first_name'] ?? '')
 );
 
 $lastName = trim(
-    isset($input['last_name'])
-        ? (string)$input['last_name']
-        : ''
+    (string)($input['last_name'] ?? '')
 );
 
 $fromEmail = trim(
-    isset($input['from_email'])
-        ? (string)$input['from_email']
-        : ''
+    (string)($input['from_email'] ?? '')
 );
 
 $phone = trim(
-    isset($input['phone'])
-        ? (string)$input['phone']
-        : ''
+    (string)($input['phone'] ?? '')
 );
 
 $subject = trim(
-    isset($input['subject'])
-        ? (string)$input['subject']
-        : ''
+    (string)($input['subject'] ?? '')
 );
 
 $message = trim(
-    isset($input['message'])
-        ? (string)$input['message']
-        : ''
+    (string)($input['message'] ?? '')
 );
 
 /*
 |--------------------------------------------------------------------------
-| Required fields
+| Validate required fields
 |--------------------------------------------------------------------------
 */
 
@@ -302,12 +203,18 @@ if (!filter_var($fromEmail, FILTER_VALIDATE_EMAIL)) {
 */
 
 $templateParams = [
+
     'first_name' => $firstName,
-    'last_name'  => $lastName,
+
+    'last_name' => $lastName,
+
     'from_email' => $fromEmail,
-    'phone'      => $phone,
-    'subject'    => $subject,
-    'message'    => $message
+
+    'phone' => $phone,
+
+    'subject' => $subject,
+
+    'message' => $message
 ];
 
 /*
@@ -317,18 +224,22 @@ $templateParams = [
 */
 
 $emailData = [
+
     'service_id' => $serviceId,
+
     'template_id' => $templateId,
+
     'user_id' => $publicKey,
+
     'template_params' => $templateParams
 ];
 
 /*
 |--------------------------------------------------------------------------
-| Add Private Key if available
+| Private Key
 |--------------------------------------------------------------------------
 |
-| EmailJS calls this accessToken.
+| Only add it if you have configured it in Vercel.
 |
 */
 
@@ -339,13 +250,16 @@ if ($privateKey !== '') {
 
 /*
 |--------------------------------------------------------------------------
-| Encode JSON
+| Encode EmailJS request
 |--------------------------------------------------------------------------
 */
 
 $jsonData = json_encode(
+
     $emailData,
-    JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+
+    JSON_UNESCAPED_SLASHES |
+    JSON_UNESCAPED_UNICODE
 );
 
 if ($jsonData === false) {
@@ -372,11 +286,12 @@ if (!function_exists('curl_init')) {
 
 /*
 |--------------------------------------------------------------------------
-| EmailJS API
+| Send request to EmailJS
 |--------------------------------------------------------------------------
 */
 
-$emailJsUrl = 'https://api.emailjs.com/api/v1.0/email/send';
+$emailJsUrl =
+    'https://api.emailjs.com/api/v1.0/email/send';
 
 $ch = curl_init($emailJsUrl);
 
@@ -389,14 +304,15 @@ if ($ch === false) {
 }
 
 curl_setopt_array($ch, [
+
     CURLOPT_POST => true,
 
     CURLOPT_RETURNTRANSFER => true,
 
-    CURLOPT_FOLLOWLOCATION => true,
-
     CURLOPT_HTTPHEADER => [
+
         'Content-Type: application/json',
+
         'Accept: application/json'
     ],
 
@@ -411,10 +327,18 @@ curl_setopt_array($ch, [
     CURLOPT_SSL_VERIFYHOST => 2
 ]);
 
+/*
+|--------------------------------------------------------------------------
+| Execute request
+|--------------------------------------------------------------------------
+*/
+
 $response = curl_exec($ch);
 
 $httpCode = (int)curl_getinfo(
+
     $ch,
+
     CURLINFO_HTTP_CODE
 );
 
@@ -424,15 +348,18 @@ curl_close($ch);
 
 /*
 |--------------------------------------------------------------------------
-| cURL connection error
+| cURL error
 |--------------------------------------------------------------------------
 */
 
 if ($response === false) {
 
     sendJson(502, [
+
         'success' => false,
+
         'message' => 'Could not connect to EmailJS.',
+
         'error' => $curlError
     ]);
 }
@@ -446,7 +373,9 @@ if ($response === false) {
 if ($httpCode >= 200 && $httpCode < 300) {
 
     sendJson(200, [
+
         'success' => true,
+
         'message' => 'Email sent successfully.'
     ]);
 }
@@ -457,17 +386,30 @@ if ($httpCode >= 200 && $httpCode < 300) {
 |--------------------------------------------------------------------------
 */
 
-$cleanResponse = trim((string)$response);
+$cleanResponse = trim(
+    (string)$response
+);
 
 sendJson(
-    $httpCode >= 400 ? $httpCode : 500,
+
+    $httpCode >= 400
+        ? $httpCode
+        : 500,
+
     [
+
         'success' => false,
-        'message' => 'EmailJS rejected the request.',
-        'emailjs_response' => $cleanResponse !== ''
-            ? $cleanResponse
-            : 'No response received from EmailJS.',
-        'http_code' => $httpCode
+
+        'message' =>
+            'EmailJS rejected the request.',
+
+        'emailjs_response' =>
+            $cleanResponse !== ''
+                ? $cleanResponse
+                : 'No response received from EmailJS.',
+
+        'http_code' =>
+            $httpCode
     ]
 );
 
