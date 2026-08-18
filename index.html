@@ -3050,12 +3050,9 @@
       }
 
       try {
-        // Build the PHP endpoint from the current website location.
-        // This avoids relative-path problems on hosting.
-        const emailEndpoint = new URL(
-          './api/send-email.php',
-          window.location.href
-        ).href;
+        // PHP email endpoint.
+        // Keep EmailJS credentials on the server-side PHP file.
+        const emailEndpoint = '/api/send-email.php';
 
         console.log('Email endpoint:', emailEndpoint);
 
