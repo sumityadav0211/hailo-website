@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund Policy — hailO by Transtrade</title>
+  <link rel="icon" type="image/png"  href="web-app-manifest-512x512.png">
+  <style>
+    :root{--navy:#1D2E4A;--navy-mid:#253a5e;--yellow:#FFD760;--orange:#FF7D4F;--gradient:linear-gradient(135deg,#FFD760 0%,#FF7D4F 100%);--dark:#3a3a3a;--dark-mid:#4d4d4d;--white:#ffffff;--off-white:#F8F9FC;--text:#1a1a2e;--text-muted:#5a6480;--text-light:#8b95b0;--border:rgba(29,46,74,0.1)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,'SF Pro Display',BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow 0.3s}
+    .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
+    .logo-img{height:52px;width:auto;object-fit:contain}
+    .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+    .nav-links a{color:var(--text-muted);text-decoration:none;font-size:14px;font-weight:600;padding:8px 16px;border-radius:100px;transition:all 0.2s;cursor:pointer}
+    .nav-links a:hover{color:var(--navy);background:var(--off-white)}
+    .nav-cta{background:var(--navy)!important;color:var(--white)!important}
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(29,46,74,0.25)!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all 0.3s}
+    .mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:16px 5%;flex-direction:column;gap:6px;z-index:199}
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{color:var(--text-muted);text-decoration:none;font-size:16px;font-weight:600;padding:12px 16px;border-radius:12px;cursor:pointer;transition:all 0.2s}
+    .mobile-nav a:hover{background:var(--off-white);color:var(--navy)}
+    footer{background:var(--navy);padding:80px 8% 40px}
+    .footer-top{display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:40px;max-width:1300px;margin:0 auto 60px}
+    .ft-brand{flex:2;min-width:0}
+    .ft-col{flex:1;min-width:0}
+    .ft-brand p{font-size:14px;color:rgba(255,255,255,0.4);line-height:1.8;font-weight:300;margin:16px 0 24px;max-width:300px}
+    .ft-col h5{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:20px}
+    .ft-col a{display:block;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:12px;cursor:pointer;transition:color 0.2s;font-weight:500}
+    .ft-col a:hover{color:var(--yellow)}
+    .footer-bottom{max-width:1300px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-size:13px;color:rgba(255,255,255,0.28);font-weight:400}
+    .footer-bottom p span{color:var(--orange)}
+    .socials{display:flex;gap:8px}
+    .soc-btn{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:all 0.2s}
+    .soc-btn:hover{background:rgba(255,255,255,0.1)}
+    .logo-pill{background:var(--navy);color:var(--yellow);font-size:17px;font-weight:800;padding:6px 14px;border-radius:100px;letter-spacing:-0.5px;line-height:1;display:flex;align-items:center;gap:2px}
+    .logo-pill .logo-o{color:var(--orange)}
+    .page-wrap{padding-top:68px;min-height:100vh;background:var(--off-white)}
+    .pol-hero{background:var(--navy);padding:80px 8% 70px;position:relative;overflow:hidden}
+    .pol-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 80% 50%,rgba(255,215,96,0.08) 0%,transparent 60%)}
+    .pol-hero-inner{position:relative;z-index:2;max-width:720px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,215,96,0.12);border:1px solid rgba(255,215,96,0.28);border-radius:100px;padding:7px 16px;font-size:11px;font-weight:700;color:var(--yellow);letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+    .badge-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;display:inline-block}
+    .pol-hero h1{font-size:clamp(36px,5vw,60px);font-weight:800;color:white;letter-spacing:-2px;line-height:1;margin-bottom:16px}
+    .pol-hero p{color:rgba(255,255,255,0.55);font-size:16px;font-weight:300}
+    .content{max-width:860px;margin:0 auto;padding:60px 5% 100px}
+    .card{background:white;border-radius:20px;padding:52px;border:1px solid var(--border);box-shadow:0 4px 40px rgba(29,46,74,0.06)}
+    .card h2{font-size:18px;font-weight:800;color:var(--navy);margin:40px 0 12px;padding-left:14px;border-left:3px solid var(--orange)}
+    .card h2:first-of-type{margin-top:0}
+    .card p{font-size:15px;color:var(--dark-mid);line-height:1.85;margin-bottom:14px}
+    .card ul{padding-left:22px;margin-bottom:16px}
+    .card li{font-size:15px;color:var(--dark-mid);line-height:1.7;margin-bottom:6px}
+    .card a{color:var(--orange);text-decoration:none;font-weight:600}
+    .card a:hover{text-decoration:underline}
+    .card strong{color:var(--navy);font-weight:700}
+    /* Highlight grid */
+    .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px}
+    .hl-box{border-radius:14px;padding:24px}
+    .hl-box.navy{background:var(--navy)}
+    .hl-box.yellow{background:rgba(255,215,96,0.15);border:1px solid rgba(255,215,96,0.4)}
+    .hl-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+    .hl-box.navy .hl-label{color:rgba(255,255,255,0.45)}
+    .hl-box.yellow .hl-label{color:var(--orange)}
+    .hl-val{font-size:28px;font-weight:900;letter-spacing:-1px}
+    .hl-box.navy .hl-val{color:var(--yellow)}
+    .hl-box.yellow .hl-val{color:var(--navy)}
+    .hl-desc{font-size:13px;margin-top:4px}
+    .hl-box.navy .hl-desc{color:rgba(255,255,255,0.55)}
+    .hl-box.yellow .hl-desc{color:var(--text-muted)}
+    /* Steps */
+    .steps{display:flex;flex-direction:column;gap:0;margin:24px 0 32px}
+    .step{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--border)}
+    .step:last-child{border-bottom:none}
+    .step-num{width:40px;height:40px;border-radius:50%;background:var(--gradient);color:white;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(255,125,79,0.35)}
+    .step-text h4{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px}
+    .step-text p{font-size:14px;color:var(--dark-mid);line-height:1.7;margin:0}
+    .note-box{background:rgba(255,215,96,0.15);border:1px solid rgba(255,215,96,0.5);border-radius:12px;padding:18px 22px;margin:20px 0;font-size:14px;color:var(--navy);line-height:1.7}
+    .final-box{background:var(--navy);border-radius:16px;padding:32px 36px;margin:24px 0}
+    .final-box h3{font-size:18px;font-weight:800;color:var(--yellow);margin-bottom:10px}
+    .final-box p{color:rgba(255,255,255,0.65);margin:0;font-size:14px}
+    .contact-box{background:var(--off-white);border:1px solid var(--border);border-radius:16px;padding:28px 32px;margin-top:12px;font-size:15px;line-height:2;color:var(--dark-mid)}
+    @media(max-width:1024px){.footer-top{flex-wrap:wrap;gap:40px}.ft-brand{flex:1 1 100%}.ft-col{flex:1 1 calc(25% - 30px);min-width:140px}}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}footer{padding:60px 5% 32px}.footer-top{flex-direction:column;gap:32px}.ft-brand,.ft-col{flex:1 1 100%}.footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}}
+    @media(max-width:600px){.card{padding:28px 24px}.pol-hero{padding:60px 5% 50px}.hl-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+ 
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="hailO" class="logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html">About</a></li>
+    <li><a href="index.html">Services</a></li>
+    <li><a href="index.html">FAQ</a></li>
+    <li><a href="index.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mobNav">
+  <a href="index.html">Home</a><a href="index.html">About</a><a href="index.html">Services</a><a href="index.html">FAQ</a>
+  <a href="index.html" style="color:var(--navy);font-weight:800">Contact Us</a>
+</div>
+ 
+<div class="page-wrap">
+  <div class="pol-hero">
+    <div class="pol-hero-inner">
+      <div class="badge"><span class="badge-dot"></span> Legal</div>
+      <h1>Refund Policy</h1>
+      <p>How trip charge refunds and cancellations are handled for Driver Partners</p>
+    </div>
+  </div>
+ 
+  <div class="content">
+    <div class="card">
+      <p>Trip Charges paid by the Driver to hailO may be eligible for cancellation and refund. However, the Company reserves the right to investigate each request and determine an appropriate resolution at its sole discretion.</p>
+ 
+      <div class="hl-grid">
+        <div class="hl-box navy">
+          <div class="hl-label">Cancel Within</div>
+          <div class="hl-val">30 Days</div>
+          <div class="hl-desc">from date of purchase</div>
+        </div>
+        <div class="hl-box yellow">
+          <div class="hl-label">Refund Timeline</div>
+          <div class="hl-val">7–15</div>
+          <div class="hl-desc">working days after approval</div>
+        </div>
+      </div>
+ 
+      <h2>Refund Process</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text"><h4>Cancel the Trip Package</h4><p>The driver must cancel the trip package within <strong>30 days</strong> from the date of purchase to be eligible for a refund.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text"><h4>Email the Support Team</h4><p>Send a refund request to <a href="mailto:help@hailo.co.in">help@hailo.co.in</a> with your trip package information, order number, and a clear description of the issue.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text"><h4>Await Review &amp; Approval</h4><p>The Company will investigate the request. If merit is found, you will be notified of approval via email.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text"><h4>Receive Your Refund</h4><p>Approved refunds are processed within <strong>7–15 working days</strong> from the date of cancellation, subject to the Terms of Service.</p></div>
+        </div>
+      </div>
+ 
+      <div class="note-box">📌 <strong>Important:</strong> Refunds may be subject to applicable deductions or fees as outlined in the Terms of Service. This Refund Policy is subject to the terms and conditions specified in the Terms of Service.</div>
+ 
+      <h2>Final Decision</h2>
+      <div class="final-box">
+        <h3>Company Decision is Final</h3>
+        <p>Any decision made by the Company regarding refunds shall be final and binding. The Company reserves the right to reject requests that do not meet the eligibility criteria.</p>
+      </div>
+ 
+      <h2>Contact for Refund Requests</h2>
+      <div class="contact-box">
+        <strong>Email:</strong> <a href="mailto:help@hailo.co.in">help@hailo.co.in</a><br>
+        <strong>Working Hours:</strong> Monday to Saturday (10 AM – 7 PM)<br><br>
+        Please include in your email:<br>
+        • Your order / trip package number<br>
+        • Date of purchase<br>
+        • A clear description of the issue
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<footer>
+  <div class="footer-top">
+    <div class="ft-brand">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="logo-pill"><img src="whitelogo.png" alt="" height="50px" width="120px"></div>
+        <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:1.5px;text-transform:uppercase">by transtrade</span>
+      </div>
+      <p>Food, medicines, essentials, or parcels — hailO by Transtrade brings everything to your doorstep with care, convenience and complete peace of mind.</p>
+      <div class="socials"><div class="soc-btn">📘</div><div class="soc-btn">📸</div><div class="soc-btn">🐦</div><div class="soc-btn">💼</div></div>
+    </div>
+    <div class="ft-col">
+      <h5>Navigate</h5>
+      <a href="index.html">Home</a><a href="index.html">About Us</a><a href="index.html">Services</a><a href="index.html">FAQ</a><a href="index.html">Contact</a>
+    </div>
+    <div class="ft-col">
+      <h5>Services</h5>
+      <a href="index.html">Food Delivery</a><a href="index.html">Pharmacy Delivery</a><a href="index.html">Parcel Delivery</a><a href="index.html">Groceries</a><a href="index.html">Tempo Delivery</a>
+    </div>
+    <div class="ft-col">
+      <h5>Contact</h5>
+      <a href="mailto:help@hailoapp.com">help@hailoapp.com</a><a href="index.html">Send a Message</a><a href="index.html">Partnership Enquiry</a><a href="index.html">Become a Rider</a>
+    </div>
+    <div class="ft-col">
+      <h5>Policies</h5>
+      <a href="privacy-policy.html">Privacy Policy</a><a href="refund-policy.html">Refund Policy</a><a href="customer-policy.html">Customer Policy</a><a href="service-agreement.html">Service Agreement</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 hailO by Transtrade. All rights reserved. Made with <span>♥</span> and a lot of bike grease.</p>
+    <p>🛵 Currently delivering near you</p>
+  </div>
+</footer>
+ 
+<script>
+  function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
+  window.addEventListener('scroll',()=>{document.getElementById('mainNav').style.boxShadow=window.scrollY>10?'0 2px 30px rgba(29,46,74,0.08)':'none'})
+</script>
+</body>
+</html>

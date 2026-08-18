@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Agreement — hailO by Transtrade</title>
+  <link rel="icon" type="image/png"  href="web-app-manifest-512x512.png">
+  <style>
+    :root {
+      --navy: #1D2E4A;
+      --navy-mid: #253a5e;
+      --yellow: #FFD760;
+      --orange: #FF7D4F;
+      --gradient: linear-gradient(135deg, #FFD760 0%, #FF7D4F 100%);
+      --dark: #3a3a3a;
+      --dark-mid: #4d4d4d;
+      --white: #ffffff;
+      --off-white: #F8F9FC;
+      --text: #1a1a2e;
+      --text-muted: #5a6480;
+      --text-light: #8b95b0;
+      --border: rgba(29, 46, 74, 0.1)
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+      object-fit: contain
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 100px;
+      transition: all 0.2s;
+      cursor: pointer
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+      background: var(--off-white)
+    }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: var(--white) !important
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(29, 46, 74, 0.25) !important
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all 0.3s
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 5%;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 199
+    }
+
+    .mobile-nav.open {
+      display: flex
+    }
+
+    .mobile-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s
+    }
+
+    .mobile-nav a:hover {
+      background: var(--off-white);
+      color: var(--navy)
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 80px 8% 40px
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1300px;
+      margin: 0 auto 60px
+    }
+
+    .ft-brand {
+      flex: 2;
+      min-width: 0
+    }
+
+    .ft-col {
+      flex: 1;
+      min-width: 0
+    }
+
+    .ft-brand p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.8;
+      font-weight: 300;
+      margin: 16px 0 24px;
+      max-width: 300px
+    }
+
+    .ft-col h5 {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 20px
+    }
+
+    .ft-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: color 0.2s;
+      font-weight: 500
+    }
+
+    .ft-col a:hover {
+      color: var(--yellow)
+    }
+
+    .footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px
+    }
+
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.28);
+      font-weight: 400
+    }
+
+    .footer-bottom p span {
+      color: var(--orange)
+    }
+
+    .socials {
+      display: flex;
+      gap: 8px
+    }
+
+    .soc-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s
+    }
+
+    .soc-btn:hover {
+      background: rgba(255, 255, 255, 0.1)
+    }
+
+    .logo-pill {
+      background: var(--navy);
+      color: var(--yellow);
+      font-size: 17px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 100px;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 2px
+    }
+
+    .logo-pill .logo-o {
+      color: var(--orange)
+    }
+
+    /* ── PAGE ── */
+    .page-wrap {
+      padding-top: 68px;
+      min-height: 100vh;
+      background: var(--off-white)
+    }
+
+    .pol-hero {
+      background: var(--navy);
+      padding: 80px 8% 70px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .pol-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(255, 215, 96, 0.08) 0%, transparent 60%)
+    }
+
+    .pol-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+   
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 215, 96, 0.12);
+      border: 1px solid rgba(255, 215, 96, 0.28);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: inline-block
+    }
+
+    .pol-hero h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 800;
+      color: white;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 16px
+    }
+
+    .pol-hero p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 16px;
+      font-weight: 300
+    }
+
+    /* Party cards */
+    .parties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1100px;
+      margin: -40px auto 0;
+      padding: 0 5%;
+      position: relative;
+      z-index: 10
+    }
+
+    .party-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 30px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 32px rgba(29, 46, 74, 0.1)
+    }
+
+    .party-card.first {
+      border-top: 4px solid var(--orange)
+    }
+
+    .party-card.second {
+      border-top: 4px solid var(--yellow)
+    }
+
+    .party-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px
+    }
+
+    .party-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px
+    }
+
+    .party-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6
+    }
+
+    /* Layout */
+    .layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding: 20px 5% 100px;
+      align-items: start
+    }
+
+    .toc {
+      position: sticky;
+      top: 90px;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      box-shadow: 0 4px 24px rgba(29, 46, 74, 0.05)
+    }
+
+    .toc h4 {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .toc a {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 8px;
+      margin-bottom: 2px;
+      font-weight: 500;
+      transition: all 0.2s
+    }
+
+    .toc a:hover {
+      background: var(--off-white);
+      color: var(--navy)
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 52px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 40px rgba(29, 46, 74, 0.06)
+    }
+
+    .card h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 40px 0 12px;
+      padding-left: 14px;
+      border-left: 3px solid var(--orange);
+      scroll-margin-top: 90px
+    }
+
+    .card h2:first-of-type {
+      margin-top: 0
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 18px 0 8px
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--dark-mid);
+      line-height: 1.85;
+      margin-bottom: 14px
+    }
+
+    .card ul {
+      padding-left: 22px;
+      margin-bottom: 16px
+    }
+
+    .card li {
+      font-size: 15px;
+      color: var(--dark-mid);
+      line-height: 1.7;
+      margin-bottom: 6px
+    }
+
+    .card a {
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 600
+    }
+
+    .card a:hover {
+      text-decoration: underline
+    }
+
+    .card strong {
+      color: var(--navy);
+      font-weight: 700
+    }
+
+    /* Fee cards */
+    .fee-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 16px 0 24px
+    }
+
+    .fee-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center
+    }
+
+    .fee-card .fee-icon {
+      font-size: 26px;
+      margin-bottom: 8px
+    }
+
+    .fee-card .fee-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy)
+    }
+
+    .fee-card .fee-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px
+    }
+
+    /* Checklist */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 24px
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--dark-mid);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .checklist li:last-child {
+      border-bottom: none
+    }
+
+    /* .checklist li::before {
+      content: '✓';
+      color: white;
+      background: var(--gradient);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px
+    } */
+
+    /* Prohibitions grid */
+    .prohib-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0 24px
+    }
+
+    .prohib-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(255, 125, 79, 0.07);
+      border: 1px solid rgba(255, 125, 79, 0.2);
+      border-radius: 10px;
+      padding: 14px 16px
+    }
+
+    .prohib-item .pi-icon {
+      font-size: 18px;
+      flex-shrink: 0
+    }
+
+    .prohib-item .pi-text {
+      font-size: 13px;
+      color: #7a2a10;
+      font-weight: 600
+    }
+
+    .warn-box {
+      background: rgba(255, 125, 79, 0.08);
+      border: 1px solid rgba(255, 125, 79, 0.3);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin: 16px 0
+    }
+
+    .warn-box p {
+      color: #7a2a10;
+      font-size: 14px;
+      margin: 0
+    }
+
+    .strong-box {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin: 20px 0
+    }
+
+    .strong-box h3 {
+      color: var(--yellow);
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 17px
+    }
+
+    .strong-box p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.8
+    }
+
+    .note-box {
+      background: rgba(255, 215, 96, 0.15);
+      border: 1px solid rgba(255, 215, 96, 0.5);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--navy);
+      line-height: 1.7
+    }
+
+    .contact-box {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 2;
+      color: var(--dark-mid)
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0
+    }
+
+    /* Signature */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 16px
+    }
+
+    .sig-box {
+      border: 2px dashed var(--border);
+      border-radius: 14px;
+      padding: 28px
+    }
+
+    .sig-box .sig-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px
+    }
+
+    .sig-box .sig-line {
+      border-bottom: 1px solid var(--navy);
+      margin-bottom: 8px;
+      height: 40px
+    }
+
+    .sig-box .sig-name {
+      font-size: 13px;
+      color: var(--text-muted)
+    }
+
+    @media(max-width:1024px) {
+      .footer-top {
+        flex-wrap: wrap;
+        gap: 40px
+      }
+
+      .ft-brand {
+        flex: 1 1 100%
+      }
+
+      .ft-col {
+        flex: 1 1 calc(25% - 30px);
+        min-width: 140px
+      }
+
+      .parties {
+        grid-template-columns: 1fr;
+        margin-top: -20px
+      }
+    }
+
+    @media(max-width:800px) {
+      .layout {
+        grid-template-columns: 1fr
+      }
+
+      .toc {
+        display: none
+      }
+
+      .card {
+        padding: 28px 22px
+      }
+
+      .fee-grid,
+      .prohib-grid,
+      .sig-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav-links {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      footer {
+        padding: 60px 5% 32px
+      }
+
+      .footer-top {
+        flex-direction: column;
+        gap: 32px
+      }
+
+      .ft-brand,
+      .ft-col {
+        flex: 1 1 100%
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px
+      }
+    }
+
+    @media(max-width:600px) {
+      .pol-hero {
+        padding: 60px 5% 50px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="hailO" class="logo-img"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">About</a></li>
+      <li><a href="index.html">Services</a></li>
+      <li><a href="index.html">FAQ</a></li>
+      <li><a href="index.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-nav" id="mobNav">
+    <a href="index.html">Home</a>
+    <a href="index.html">About</a>
+    <a href="index.html">Services</a>
+    <a href="index.html">FAQ</a>
+    <a href="index.html" style="color:var(--navy);font-weight:800">Contact Us</a>
+  </div>
+
+  <div class="page-wrap">
+
+    <!-- HERO -->
+    <div class="pol-hero">
+      <div class="pol-hero-inner">
+        <div class="badge"><span class="badge-dot"></span> Legal</div>
+        <h1>Service Agreement</h1>
+        <p>Driver / Rider Partner Agreement | hailO by Transtrade</p>
+        <p style="margin-top:8px;font-size:13px;color:rgba(255,255,255,0.4)">Dated: ____ / ____ / 2026 (DD / MM / YYYY)</p>
+        <p style="margin-top:8px;font-size:13px;color:rgba(255,255,255,0.4)">This Service Agreement (“Agreement”) is entered into as of the date set out above, by and between:</p>
+      </div>
+    </div>
+
+    <!-- PARTY CARDS -->
+    <div class="parties">
+      <div class="party-card first">
+        <div class="party-label">First Party (Platform)</div>
+        <div class="party-name">S V SANGHVI TRANSTRADE TECHNO PRIVATE LIMITED</div>
+        <div class="party-desc">A company registered under the Companies Act, having its registered office at Office No. SF-21 & 22A, Munisuvrat
+Plaza, 1509, C Ward, Laxmipuri, Kolhapur – 416002, Maharashtra, India (Email: info@hailo.co.in), hereinafter
+referred to as “hailO”, the “Company”, or the “Platform”, acting through its Directors and/or Authorized Person(s).</div>
+      </div>
+      <div class="party-card second">
+        <div class="party-label">Second Party (Driver / Rider Partner)</div>
+        <div class="party-name">THE DRIVER / RIDER PARTNER NAMED BELOW</div>
+        <div class="party-desc">Name: _____ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PAN: _____ <br>
+Aadhaar Number: _____ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Driving Licence No.: _____ <br>
+Mobile No.: _____ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email address: _____ <br>
+hereinafter referred to as the “Driver Partner” or “You”.
+hailO and the Driver Partner are individually referred to as a “Party” and collectively as the “Parties”.</div>
+      </div>
+    </div>
+
+    <!-- LAYOUT -->
+    <div class="layout">
+
+      <!-- TOC -->
+      <div class="toc">
+        <h4>Contents</h4>
+        <a href="#recitals">Recitals</a>
+        <a href="#c1">1. Applicability &amp; Validity</a>
+        <a href="#c2">2. Definitions</a>
+        <a href="#c3">3. Relationship</a>
+        <a href="#c4">4. Term &amp; Termination</a>
+        <a href="#c5">5. Platform Access, Fees &amp; Payments</a>
+        <a href="#c6">6. Cancellation &amp; No-Show</a>
+        <a href="#c7">7. Taxes</a>
+        <a href="#c8">8. Obligations &amp; Prohibited Conduct</a>
+        <a href="#c9">9. Prohibited Goods</a>
+        <a href="#c10">10. Platform Integrity</a>
+        <a href="#c11">11. Standard of Service</a>
+        <a href="#c12">12. Vehicle Branding &amp; Images</a>
+        <a href="#c13">13. Safety, Vehicle &amp; Insurance</a>
+        <a href="#c14">14. Vehicle Standards</a>
+        <a href="#c15">15. Accidents &amp; Emergencies</a>
+        <a href="#c16">16. Pink Rides</a>
+        <a href="#c17">17. Refusal / Termination of Service</a>
+        <a href="#c18">18. Lost &amp; Found Property</a>
+        <a href="#c19">19. Liability, Indemnity &amp; Limitation</a>
+        <a href="#c20">20. Confidentiality &amp; Data Protection</a>
+        <a href="#c21">21. Intellectual Property</a>
+        <a href="#c22">22. Grievance Redressal</a>
+        <a href="#c23">23. Compliance with Laws</a>
+        <a href="#c24">24. Training</a>
+        <a href="#c25">25. Dispute Resolution &amp; Arbitration</a>
+        <a href="#c26">26. Website Terms &amp; Policies</a>
+        <a href="#c27">27. General Terms</a>
+        <a href="#c28">28. Governing Law &amp; Jurisdiction</a>
+        <a href="#c29">29. Declaration &amp; Acknowledgement</a>
+        <a href="#signatures">Signatures</a>
+        <a href="#sched1">Schedule 1 — Documents Required</a>
+        <a href="#sched2">Schedule 2 — Verification Declaration</a>
+        <a href="#sched3">Schedule 3 — Vehicle, Driver &amp; Bank Details</a>
+        <a href="#sched4">Schedule 4 — No Objection Certificate</a>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="card">
+
+        <h2 id="recitals">Recitals</h2>
+        <p><strong>A.</strong> hailO operates a technology platform that connects customers with independent Driver/Rider Partners for logistics,
+delivery and mobility services. hailO does not itself provide transportation services or sell goods, and acts solely as a
+facilitator of the connection.</p>
+        <p><strong>B.</strong> The Driver Partner wishes to provide logistics, delivery and/or mobility services to customers through the hailO
+platform on the terms of this Agreement.</p>
+        <p><strong>C.</strong> The Parties wish to record the terms of their engagement on a principal-to-principal basis.</p>
+        <p> <b>NOW, THEREFORE,</b> in consideration of the mutual covenants set out below, the Parties agree as follows.</p>
+
+        <h2 id="c1">1. Applicability &amp; Validity</h2>
+        <p><strong>1.1</strong> his document is an electronic record within the meaning of the Information Technology Act, 2000 and the rules
+framed thereunder, and the provisions pertaining to electronic records in other applicable statutes, as amended. This
+electronic record is generated by a computer system and does not require a physical or digital signature.</p>
+        <p><strong>1.2</strong> The Driver Partner's Acceptance is valid consent to be bound by this Agreement for the purpose of receiving and
+performing the Platform Services, and operates as a binding agreement between the Driver Partner and hailO. The
+Driver Partner should read and understand all clauses of this Agreement before providing the Platform Services, as the
+Driver Partner shall be bound by all its terms upon Acceptance.</p>
+        <p><strong>1.3</strong> hailO reserves the right to change, modify, add to, or remove the clauses of this Agreement, in part or in whole. It
+is the Driver Partner's responsibility to periodically check this Agreement and hailO's website for any changes. The
+Driver Partner's continued use of the Platform following the posting of changes constitutes acceptance of those
+changes.</p>
+        <p><strong>1.4</strong> By accepting this Agreement, the Driver Partner further agrees and consents to the collection, transfer, use, storage,
+disclosure, and sharing of their information (personally identifiable or not), as permitted under applicable law, for
+improving the Platform Services, internal record-keeping, security, and statutory disclosure. The Driver Partner further
+agrees to hailO's Privacy Policy available at <a href="privacy-policy.html">hailo.co.in</a>.</p>
+
+        <h2 id="c2">2. Definitions &amp; Interpretation</h2>
+        <ul class="checklist">
+          <li><strong>“Acceptance”</strong> means the Driver Partner's affirmative act of signing this Agreement, clicking “I Accept/Agree”, or
+logging in/signing in on the hailO application, by which act the Driver Partner unequivocally accepts this Agreement
+and any modifications made in accordance with it.</li>
+          <li><strong>“Applicable Law”</strong> means any statute, rule, regulation, notification, circular, or judicial or governmental
+pronouncement having the force of law in India, as amended from time to time.
+          </li>
+          <li><strong>“Driver Information”</strong> means personal data collected from the Driver Partner, including KYC documents, bank
+details, vehicle documents, driving licence, identity and residence proof, location data, and any other information hailO
+may reasonably require.</li>
+          <li><strong>“Effective Date”</strong> means the date on which the Driver Partner accepts this Agreement, as recorded above.</li>
+          <li><strong>“Governmental Authority”</strong> means any government, regulatory, judicial, or law-enforcement body or agency,
+including the police, of any rank.</li>
+          <li><strong>“Platform Services”</strong> means the services provided by the Driver Partner of making themselves and their vehicle
+available for hailO's logistics, delivery, and mobility services in response to customer requests placed on the hailO
+application.</li>
+        </ul>
+        <p>Headings are for convenience only and do not affect interpretation. Words importing the singular include the plural
+and vice versa; words importing one gender include all genders. References to this Agreement include its Schedules
+and any policies incorporated by reference.</p>
+
+        <h2 id="c3">3. Relationship</h2>
+        <p><strong>3.1</strong> The Driver Partner is an independent contractor engaged on a principal-to-principal basis. Nothing in this
+Agreement creates any employment, agency, partnership, or joint-venture relationship between the Parties.</p>
+        <p><strong>3.2</strong> The Driver Partner shall accept and fulfil service requests routed through the hailO platform, ensure timely pickup
+and delivery, and maintain professional conduct with customers and hailO personnel.</p>
+        <p><strong>3.3</strong> The Driver Partner is free to determine their own working hours and is not obligated to accept any minimum
+number of requests, save where a committed schedule has been separately agreed in writing.</p>
+        <div class="note-box">⚖️ <strong>3.4</strong> Except to the extent mandatorily required by applicable law (including any platform-worker social-security
+obligations under the Code on Social Security, 2020, as implemented), the Driver Partner is not entitled to any
+employment benefits, salary, leave, provident fund, gratuity, bonus, or similar benefits by virtue of this Agreement.</div>
+
+        <h2 id="c4">4. Term &amp; Termination</h2>
+        <p><strong>4.1 Term.</strong> This Agreement commences on the Effective Date and is valid for one (1) year, and shall automatically
+renew for successive one-year periods unless terminated in accordance with this Clause.</p>
+        <p><strong>4.2 Termination by hailO.</strong> hailO reserves the right to suspend or terminate this Agreement at any time, without
+assigning any reason and without prior notice to the Driver Partner, including (without limitation) in cases of fraud or
+fake orders, misbehaviour with customers, theft or tampering with goods, use of fake or expired documents, operating
+multiple accounts, working under the influence of alcohol or drugs, or any illegal activity.</p>
+        <p><strong>4.3 Termination by the Driver Partner.</strong> The Driver Partner may terminate this Agreement by giving fifteen (15)
+days' written notice to hailO.</p>
+        <p><strong>4.4 Effect of termination.</strong> Termination shall be without prejudice to the accrued rights and obligations of either Party
+existing as at the date of termination, and shall not affect any other right or remedy available to hailO. Provisions that
+by their nature ought to survive termination shall continue in force in accordance with Clause 27.9.</p>
+        <p><strong>4.5 Appeal.</strong> A Driver Partner whose account is suspended or terminated may submit a written appeal to the Grievance
+Officer (Clause 22) within seven (7) days, which hailO shall review on a best-effort basis.</p>
+
+        <h2 id="c5">5. Platform Access, Fees &amp; Payments</h2>
+        <p><strong>5.1</strong> The Driver Partner shall pay applicable platform-usage, trip-access, or recharge charges (per-trip or wallet-based,
+plus applicable taxes) through hailO's payment gateway, prior to accepting trips. hailO may revise such charges at any time; continued use of the Platform after such revision constitutes acceptance. Trip recharge amounts, once paid, are
+non-refundable.</p>
+        <!-- <div class="fee-grid">
+          <div class="fee-card">
+            <div class="fee-icon">🚗</div>
+            <div class="fee-title">Per Trip</div>
+            <div class="fee-desc">Charged per trip accepted</div>
+          </div>
+          <div class="fee-card">
+            <div class="fee-icon">📅</div>
+            <div class="fee-title">Subscription</div>
+            <div class="fee-desc">Weekly / monthly plans</div>
+          </div>
+          <div class="fee-card">
+            <div class="fee-icon">👜</div>
+            <div class="fee-title">Wallet Deduction</div>
+            <div class="fee-desc">Pre-loaded wallet balance</div>
+          </div>
+        </div> -->
+        <p><strong>5.2</strong>  In consideration for the Platform Services, the Driver Partner shall be entitled to Fees as notified by hailO from
+time to time, subject to deduction/collection of applicable taxes. Pricing, trip fares, incentives, and discounts extended
+to customers are determined at hailO's sole and absolute discretion and are inclusive of all applicable taxes.</p>
+        <p><strong>5.3</strong> If any payment is due from hailO to the Driver Partner (it being clarified that, since the Driver Partner ordinarily
+collects trip charges directly from the customer under Clause 5.5, such a payment will typically not arise), the same
+shall be made by crossed cheque, NEFT, RTGS, or such other mode as hailO determines from time to time, in
+accordance with the settlement cycle published in the Payment Policy.</p>
+        <div class="warn-box">
+          <p>⚠️ <strong>5.4</strong>  Non-payment of applicable charges by the Driver Partner may result in restriction of access, blocking of trips, or
+suspension of the account.</p>
+        </div>
+        <p><strong>5.5</strong> hailO is not responsible for the collection of any amount from the customer. The Driver Partner shall collect the
+trip charges directly from the customer, either in cash or via UPI. hailO is <strong>not</strong> a payment collector or intermediary and
+shall not be liable for payment disputes, cash shortages, or fraud by either the customer or the Driver Partner.</p>
+        <p><strong>5.6</strong> The Driver Partner shall ensure that their registered mobile device remains available, charged, connected to an
+active internet connection, and reachable at all times during an active trip so that hailO can track and facilitate the
+Platform Services. If the Driver Partner's device is unavailable, switched off, or unreachable for a prolonged period and
+this results in a customer complaint or compensation being paid by hailO to the customer, hailO may deduct an amount
+up to the value of such compensation from amounts otherwise payable to the Driver Partner, at hailO's reasonable
+discretion.</p>
+        <p><strong>5.7</strong> The Driver Partner shall be part of hailO's standard ratings process. Consistently low ratings may affect the Driver
+Partner's access to the Platform, at hailO's discretion, following notice to the Driver Partner.</p>
+        <p><strong>5.8</strong> hailO does not guarantee any minimum number of trips, minimum business volume, or minimum earnings to the
+Driver Partner. The volume and value of Platform Services made available to the Driver Partner may vary based on
+demand, location, ratings, and other factors at hailO's sole discretion.
+        </p>
+        <p><strong>5.9</strong> In relation to Tempo Platform Services specifically, loading and unloading of goods is not included within the trip
+fare. Where the Driver Partner agrees to provide such loading or unloading assistance, this shall be a separate
+arrangement directly between the Driver Partner and the customer, on mutually agreed additional charges. hailO shall
+not be responsible or liable for any such additional charges, arrangement, or any dispute arising therefrom, the same
+being strictly a matter between the Driver Partner and the customer.</p>
+          <p><strong>5.10</strong> Where a customer places an order for the purchase of products from a restaurant, shop, or other vendor and
+requests delivery through hailO, payment for such products to the vendor shall be the sole responsibility of the
+customer. The Driver Partner is not required or responsible to make any such payment to the vendor on the customer's
+behalf, and the Driver Partner shall not engage in any practice of paying the vendor on the customer's behalf. If the
+Driver Partner nonetheless chooses to make such a payment on the customer's behalf, this shall be a purely private
+arrangement between the Driver Partner and the customer, entered into at the Driver Partner's own risk, and hailO and
+its authorised representative(s) shall bear no responsibility or liability for any dispute, non-payment, or loss arising
+therefrom.</p>
+
+        <h2 id="c6">6. Cancellation &amp; No-Show Policy</h2>
+        <p><strong>6.1</strong>  The Driver Partner shall promptly proceed to the pickup location after accepting a trip. Repeated cancellations
+without a valid reason may result in suspension or termination of the Driver Partner's account.</p>
+        <p><strong>6.2</strong> Where a trip is cancelled by the customer, the trip credit shall be reinstated to the Driver Partner's account for use
+against a subsequent booking. No cash refund of the trip recharge or trip amount shall be payable in such event.</p>
+        <p><strong>6.3</strong> Where a customer cancels a booking after the Driver Partner has already commenced moving towards the pickup
+location, hailO shall not be responsible or liable to reimburse the Driver Partner for any fuel, time, or other cost or loss
+incurred by the Driver Partner on account of such cancellation. hailO may or may not levy a cancellation charge on the
+customer, at its discretion, and whether or not such a charge is levied, and irrespective of whether any part of it is
+payable to the Driver Partner, shall be determined by hailO from time to time.</p>
+        <p><strong>6.4</strong> Where a trip is cancelled by the Driver Partner without a valid reason after having accepted it, the Driver Partner
+shall be liable to pay such cancellation penalty as may be determined by hailO from time to time.</p>
+
+        <h2 id="c7">7. Taxes</h2>
+        <p><strong>7.1</strong> TThe Driver Partner is solely responsible for determining and discharging their own income-tax, GST, and other tax
+obligations arising from the Platform Services, and for obtaining any required registrations (including GST registration
+where the threshold is crossed).</p>
+        <p><strong>7.2</strong> Statutory compliance in respect of each consignment (including GST invoices and e-way bills, where applicable) is
+primarily the customer's responsibility; the Driver Partner shall collect the requisite documents from the customer prior
+to pickup.</p>
+        <p><strong>7.3</strong> Since the Driver Partner collects trip charges directly from the customer in accordance with Clause 5.5, hailO does
+not collect or hold any part of such payment, and hailO shall have no GST liability in respect of amounts so collected
+by the Driver Partner.</p>
+           <h2 id="c8">8. Obligations &amp; Prohibited Conduct</h2>
+        <ul class="checklist">
+          <li><strong>8.1</strong> The Driver Partner shall not hold more than one active hailO registration, and
+            shall not sell, trade, or otherwise transfer their registration to any other person.</li>
+          <li><strong>8.2</strong> The Driver Partner shall provide true and accurate information at all times, and
+            shall not withhold any information that could reasonably affect their ability to perform the Platform
+            Services. hailO reserves the right to deregister, suspend, or terminate the Driver Partner, and to take
+            appropriate legal proceedings, without prior notice, in case of inaccurate information.</li>
+          <li><strong>8.3</strong> The Driver Partner acknowledges that they may be subject to background and
+            driving-record verification (“BGV”) from time to time. If any discrepancy is found during or after BGV,
+            this Agreement shall stand void with immediate effect, at hailO's sole discretion.</li>
+          <li><strong>8.4</strong> The Driver Partner shall not use any information pertaining to hailO's customers,
+            including confidential information, for any purpose other than performing their obligations under this
+            Agreement.</li>
+          <li><strong>8.5</strong> The Driver Partner shall ensure that all documents pertaining to the vehicle
+            (including comprehensive valid insurance) and to each consignment (including invoices, description of
+            goods, and any customer-obtained insurance) are obtained and retained during the term of this Agreement.
+          </li>
+          <li><strong>8.6</strong> The Driver Partner shall maintain a functioning smartphone with an active mobile
+            number and active internet connection, capable of receiving and sending trip-related communications, and
+            shall be reasonably familiar with prominent destinations and routes within the territory in which the
+            Platform Services are rendered.</li>
+          <li><strong>8.7</strong> Any pilferage or tampering of the vehicle or a consignment during the performance
+            of the Platform Services shall be reported to hailO immediately. For any issue relating to the Platform
+            Services, the Driver Partner shall contact the TA (Travel Associate). If the Driver Partner has a
+            complaint against the TA, the Driver Partner shall contact the DTA.</li>
+          <li><strong>8.8</strong> The Driver Partner shall be solely liable for any claim or demand raised by a
+            third party in respect of the vehicle (whether owned or hired), including as to title. hailO may or may
+            not independently verify the details of the vehicle used, and shall not be held responsible for any
+            dispute as to title between the registered owner and the Driver Partner.</li>
+          <li><strong>8.9</strong> The Platform Services shall be personally performed by the registered Driver
+            Partner only. The Driver Partner shall not permit any other person, whether or not related to the Driver
+            Partner, to drive the vehicle or perform any Platform Services on their behalf or under their
+            registration. Breach of this Clause shall entitle hailO to immediately suspend or terminate the Driver
+            Partner's registration, without prejudice to any other remedy available to hailO.</li>
+        </ul>
+
+        <h2 id="c9">9. Prohibited Goods</h2>
+        <div class="prohib-grid">
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Explosives, firearms,
+              ammunition</span></div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Narcotic drugs</span></div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Hazardous chemicals</span>
+          </div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Counterfeit goods</span>
+          </div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Cash, jewellery, precious
+              metals</span></div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Live animals</span></div>
+        </div>
+        <p><strong>9.1</strong> The Driver Partner shall not knowingly accept or transport any parcel containing
+          prohibited or illegal goods, including but not limited to those listed above, or any article prohibited
+          under applicable law.</p>
+        <p><strong>9.2</strong> The customer shall be solely responsible for the contents of the parcel and any
+          legal consequences arising therefrom.</p>
+
+        <h2 id="c10">10. Platform Integrity</h2>
+        <p><strong>10.1</strong> The Driver Partner shall not manipulate GPS location, create fake trips, use
+          unauthorized software, operate multiple accounts, or engage in any fraudulent activity intended to obtain
+          wrongful benefits.</p>
+        <p><strong>10.2</strong> Any such conduct shall constitute a material breach of this Agreement and may
+          result in immediate suspension or termination, without prejudice to hailO's legal remedies.</p>
+
+        <h2 id="c11">11. Standard of Service &amp; Non-Disparagement</h2>
+        <p><strong>11.1</strong> The Driver Partner shall render the Platform Services with the care, skill, and
+          diligence of a reasonably prudent operator (“RPO”) — that is, exercising the skill, diligence, prudence,
+          and foresight reasonably expected of a skilled and experienced operator complying with all Applicable Law,
+          engaged in the same type of undertaking under similar circumstances — and shall ensure that any person
+          engaged by the Driver Partner does the same.</p>
+        <p><strong>11.2</strong> The Driver Partner shall render the Platform Services in strict compliance with the
+          Motor Vehicles Act, 1988, the Motor Transport Workers Act, 1961, the Carriage by Road Act, 2007 and Rules,
+          2011 (where applicable), and all other Applicable Law.</p>
+        <p><strong>11.3</strong> The Driver Partner shall not, and shall ensure that persons engaged by them do not,
+          disparage or make negative public statements (oral or written) about hailO or its officers, employees,
+          directors, or representatives.</p>
+        <p><strong>11.4</strong> Breach of this Clause entitles hailO to terminate this Agreement and claim
+          indemnification from the Driver Partner in accordance with Clause 19.</p>
+
+        <h2 id="c12">12. Vehicle Branding &amp; Use of Images</h2>
+        <p><strong>12.1</strong> Where hailO mandates vehicle branding, the Driver Partner shall display such
+          branding and shall not opt out of it during the term of this Agreement, except with hailO's prior written
+          consent. Brand affixation shall only be carried out through vendors identified by hailO.</p>
+        <p><strong>12.2</strong> The Driver Partner consents to hailO's use of their photograph and vehicle
+          photographs in hailO's internal communications, training material, and marketing/advertising (including
+          online, social media, and offline), and to hailO sharing such images with third parties for these
+          purposes, subject to hailO's Privacy Policy.</p>
+
+        <h2 id="c13">13. Safety, Vehicle &amp; Insurance</h2>
+        <p><strong>13.1</strong> The Driver Partner shall maintain, at their own cost, throughout the term: (a) a
+          valid driving licence; (b) valid vehicle registration (RC); (c) a current PUC certificate; and (d) valid
+          third-party motor insurance as required under the Motor Vehicles Act, 1988.</p>
+        <p><strong>13.2</strong> For commercial or bike-taxi operations, the Driver Partner shall additionally hold
+          the required commercial permit and commercial-use insurance, and shall comply with applicable state
+          transport/RTO requirements, including any specific to the State of Maharashtra.</p>
+        <p><strong>13.3</strong> The Driver Partner shall observe road-safety norms, including mandatory helmet use
+          for two-wheelers, which shall also be compulsory for any pillion passenger, with the helmet to be provided
+          by the Driver Partner, and seatbelt use for four-wheelers. The Driver Partner shall keep the vehicle in
+          good operating condition and report accidents to the TA (Travel Associate) and the appropriate authorities
+          promptly.</p>
+        <div class="note-box">🚗 <strong>13.4</strong> No vehicle is provided by hailO under any circumstances. All
+          costs of acquisition, maintenance, insurance, and running of the vehicle are borne solely by the Driver
+          Partner, and hailO shall not be liable to settle any claim or pay any amount in connection with the
+          vehicle.</div>
+
+        <h2 id="c14">14. Vehicle Standards</h2>
+        <p><strong>14.1</strong> The Driver Partner shall ensure that the vehicle remains clean, hygienic,
+          roadworthy, and in good mechanical condition at all times. Failure to maintain minimum quality and
+          cleanliness standards may result in suspension from the Platform.</p>
+        <p><strong>14.2</strong> hailO may, on reasonable notice, inspect the vehicle and require production of the
+          documents referred to in Clauses 13 and 14 to verify ongoing compliance. Failure to produce valid documents
+          or to permit such inspection may result in restriction of access or suspension of the account, at hailO's
+          discretion.</p>
+
+        <h2 id="c15">15. Accidents and Emergencies</h2>
+        <p><strong>15.1</strong> In the event of any accident, injury, theft, or emergency during the course of a
+          trip or delivery, the Driver Partner shall first take all reasonable steps to ensure the safety of affected
+          persons and notify the appropriate emergency authorities where required.</p>
+        <p><strong>15.2</strong> The Driver Partner shall thereafter inform the TA (Travel Associate) as soon as
+          reasonably practicable and cooperate with any investigation.</p>
+        <div class="warn-box">
+          <p>⚠️ <strong>15.3</strong> The Driver Partner is not entitled to claim reimbursement of hospitalisation or
+            medical expenses incurred by the Driver Partner, or by their family members, in connection with any
+            accident, injury, or illness arising during or in connection with the Platform Services.</p>
+        </div>
+
+        <h2 id="c16">16. Pink Rides (Female-Only Services)</h2>
+        <p><strong>16.1</strong> All terms of this Agreement apply equally to Platform Services rendered under
+          hailO's Pink Rides (female-only) category, in addition to the specific conditions set out in this Clause.
+        </p>
+        <p><strong>16.2</strong> Where the Driver Partner's registration includes Pink Rides, the vehicle shall be
+          driven only by the registered female Driver Partner. No male driver shall operate the vehicle for any trip
+          booked under Pink Rides.</p>
+        <p><strong>16.3</strong> A Pink Rides booking may only be made by a female customer. A child below eighteen
+          (18) years of age may be a co-passenger only if accompanied by an adult female. No male passenger is
+          permitted on a Pink Rides trip.</p>
+        <p><strong>16.4</strong> If a male passenger attempts to board or is found to have booked a Pink Rides trip,
+          the Driver Partner has the right to immediately cancel the trip and shall promptly inform the TA. hailO
+          reserves the right to take appropriate action, including suspension or termination under Clause 4, against
+          the customer or Driver Partner as applicable.</p>
+        <p><strong>16.5</strong> Pink Rides is limited strictly to passenger ride bookings. It does not extend to,
+          and shall not be used for, parcel or delivery services, this restriction being maintained specifically in
+          the interest of women's safety.</p>
+
+        <h2 id="c17">17. Refusal or Termination of Service</h2>
+        <p><strong>17.1</strong> The Driver Partner may refuse or terminate a ride or delivery where the customer is
+          abusive, violent, intoxicated to an extent that poses a safety risk, engages in unlawful conduct, or
+          requests any activity contrary to law or this Agreement.</p>
+        <p><strong>17.2</strong> The Driver Partner shall promptly report such incidents to the TA (Travel
+          Associate) through the prescribed reporting mechanism.</p>
+
+        <h2 id="c18">18. Lost and Found Property</h2>
+        <p><strong>18.1</strong> Any property left behind by a customer in the Driver Partner's vehicle shall be
+          reported to the TA (Travel Associate) as soon as reasonably practicable. The Driver Partner shall make
+          reasonable efforts to safeguard such property until further instructions are received.</p>
+        <p><strong>18.2</strong> hailO acts only as a facilitator and shall not be liable for any loss, damage, or
+          failure to recover such property.</p>
+
+        <h2 id="c19">19. Liability, Indemnity &amp; Limitation</h2>
+        <p><strong>19.1</strong> The Driver Partner is responsible for accidents, injury or death, loss/theft/damage
+          of goods, legal violations, vehicle-related issues, and customer claims arising in connection with the
+          Platform Services performed by them.</p>
+        <p><strong>19.2</strong> The Driver Partner shall exercise due care in the handling and transport of the
+          customer's goods and shall be responsible for their safe delivery to the customer. The Driver Partner shall
+          be liable for any damage to the goods occurring during transit up to the point of delivery, save where such
+          damage is caused by an inherent defect in the goods, improper packaging by the customer, or force majeure.
+        </p>
+        <div class="strong-box">
+          <h3>⚖️ 19.3 Indemnity by the Driver Partner</h3>
+          <p>The Driver Partner shall indemnify and keep indemnified and hold hailO harmless from and against any and
+            all liabilities, losses, charges, expenses (including legal fees on a full-indemnity basis), claims,
+            demands, actions, and proceedings that hailO may incur or sustain, directly or indirectly, arising from:
+            (a) any breach by the Driver Partner of this Agreement; (b) the Driver Partner's negligence or wilful
+            misconduct; (c) any claim relating to the vehicle's title, ownership, or third-party use; or (d) any act
+            or omission of a person engaged by the Driver Partner. The Driver Partner shall pay such sums forthwith
+            on demand by hailO in writing.</p>
+        </div>
+        <p><strong>19.4</strong> There shall be no equivalent limitation on the Driver Partner's liability to hailO
+          under this Agreement or by reason of the indemnity in Clause 19.3.</p>
+        <p><strong>19.5</strong> Each Party shall bear its own costs in connection with its obligations under this
+          Agreement and its own advocates' fees, save as otherwise set out in Clause 27.10 (Stamp duty).</p>
+
+        <div class="divider"></div>
+
+        <h2 id="c20">20. Confidentiality &amp; Data Protection</h2>
+        <p><strong>20.1 Confidentiality.</strong> Customer data, pricing, platform data, and each Party's proprietary
+          information (“Confidential Information”) are strictly confidential and must not be shared, sold, or
+          misused, either during the term or for three (3) years after its end.</p>
+        <p><strong>20.2 Personal data.</strong> The Driver Partner consents to hailO collecting, storing, using,
+          transferring, and sharing their Driver Information (personally identifiable or not) for onboarding,
+          verification, regulatory compliance, internal record-keeping, statutory disclosure, and platform
+          operations, as permitted under applicable law and hailO's Privacy Policy (hailo.co.in).</p>
+        <p><strong>20.3 Location tracking.</strong> The Driver Partner expressly acknowledges and consents that
+          the hailO Driver Partner application captures the Driver Partner's location in the background during an
+          active trip, including when the application is not in active use on screen. Such location data is archived
+          together with the corresponding trip data and may be preserved by hailO for an extended period, including
+          after completion of the trip, for record-keeping, safety, dispute-resolution, and regulatory purposes. The
+          location data so captured is used, among other things, to display the route taken by the Driver Partner from
+          the pickup point to the drop point.</p>
+        <p><strong>20.4</strong> hailO shall process personal data in accordance with the Digital Personal Data
+          Protection Act, 2023, the Aadhaar Act, 2016, and applicable law, on the principles of purpose limitation,
+          data minimisation, storage limitation, and reasonable security. Aadhaar data, where collected, shall be
+          masked and handled in accordance with applicable law.</p>
+        <p><strong>20.5</strong> The Driver Partner shall not collect, store, or misuse customer personal data
+          obtained through the Platform.</p>
+
+        <h2 id="c21">21. Intellectual Property</h2>
+        <p><strong>21.1</strong> hailO remains the owner of all intellectual property it owns or controls as of the
+          Effective Date, or develops or acquires thereafter, including the hailO name, logo, and branding. Nothing
+          in this Agreement transfers any intellectual property rights of either Party to the other.</p>
+        <p><strong>21.2</strong> Any intellectual property created in the course of, or in connection with, this
+          Agreement (excluding the Driver Partner's pre-existing intellectual property) shall be owned exclusively by
+          hailO. Nothing in this Agreement grants the Driver Partner any licence to use the hailO name or logo except
+          as expressly permitted under Clause 12.</p>
+
+        <h2 id="c22">22. Grievance Redressal</h2>
+        <p><strong>22.1</strong> hailO designates a Grievance Officer whose name and contact details are published
+          at hailo.co.in. The Driver Partner may escalate any grievance to the Grievance Officer, who shall
+          acknowledge and respond within the timelines prescribed by applicable law.</p>
+
+        <h2 id="c23">23. Compliance with Laws</h2>
+        <p><strong>23.1</strong> hailO shall obtain and maintain all licences, registrations, and approvals required
+          for operating the Platform, including applicable transport, platform-worker, data-protection, and (where
+          relevant) food-delivery obligations.</p>
+        <p><strong>23.2</strong> The Driver Partner shall comply with the Motor Vehicles Act, 1988, GST laws, local
+          transport laws, food-safety laws (where applicable), and all other applicable Indian law, and shall hold
+          all licences, permits, and approvals necessary for the vehicle used, at their own cost.</p>
+        <p><strong>23.3</strong> Each Party shall comply with applicable platform-worker social-security obligations
+          under the Code on Social Security, 2020, and rules notified thereunder, to the extent applicable to it and
+          as implemented.</p>
+
+        <h2 id="c24">24. Training</h2>
+        <p><strong>24.1</strong> hailO may require the Driver Partner to participate in onboarding sessions,
+          refresher training, safety programmes, or policy updates from time to time. Continued access to the
+          Platform may be subject to successful completion of such programmes.</p>
+
+        <h2 id="c25">25. Dispute Resolution &amp; Arbitration</h2>
+        <p><strong>25.1 Escalation.</strong> The Parties shall first attempt to resolve any dispute amicably,
+          including escalation to the Grievance Officer, within thirty (30) days.</p>
+        <p><strong>25.2 Arbitration.</strong> Any dispute not resolved amicably shall be referred to arbitration by
+          a sole arbitrator, governed by the Arbitration and Conciliation Act, 1996. The seat and venue of
+          arbitration shall be Kolhapur, Maharashtra, India, and the language of arbitration shall be English. The
+          arbitration shall be kept confidential by the Parties, save as required by law.</p>
+        <p><strong>25.3 Appointment.</strong> The sole arbitrator shall be appointed by mutual consent within thirty
+          (30) days of a Party invoking arbitration, failing which the arbitrator shall be appointed under Section 11
+          of the Arbitration and Conciliation Act, 1996.</p>
+        <p><strong>25.4 Interim relief.</strong> Nothing in this Clause prevents either Party from seeking interim
+          or injunctive relief from the competent courts at Kolhapur, Maharashtra, where necessary.</p>
+        <p><strong>25.5</strong> The decision of the arbitrator shall be final and binding on the Parties.</p>
+        <ul>
+          <li><strong>Governing Law:</strong> India</li>
+          <li><strong>Seat &amp; Venue of Arbitration:</strong> Kolhapur, Maharashtra</li>
+          <li><strong>Language:</strong> English</li>
+        </ul>
+
+        <h2 id="c26">26. Website Terms &amp; Policies</h2>
+        <p><strong>26.1</strong> The Privacy Policy, Payment Policy, Code of Conduct, and other policies applicable
+          to Driver/Rider Partners as published on hailO's official website (hailo.co.in) are incorporated into this
+          Agreement by reference, and hailO may amend them from time to time. It is the Driver Partner's
+          responsibility to periodically review such policies for changes.</p>
+        <p><strong>26.2 Order of precedence.</strong> In the event of a conflict, the terms of this Agreement shall
+          prevail over the website terms and policies, which shall prevail over any general communications.</p>
+
+        <h2 id="c27">27. General Terms</h2>
+        <p><strong>27.1 Electronic record.</strong> This Agreement is an electronic record under the Information
+          Technology Act, 2000, generated by a computer system, and does not require a physical or digital signature
+          to be valid. The Driver Partner's Acceptance is a valid and binding consent to this Agreement.</p>
+        <p><strong>27.2 Notices.</strong> All notices shall be in writing and sent to the addresses above (or as
+          updated), by email, registered post, courier, or in-app notification. Notices are deemed received on the
+          date of acknowledgment, or, for email/in-app, on the next business day.</p>
+        <p><strong>27.3 Severability.</strong> If any provision is held invalid or unenforceable, the remaining
+          provisions remain in full force, and the Parties shall negotiate in good faith a valid replacement
+          reflecting the original intent.</p>
+        <p><strong>27.4 Waiver.</strong> No failure or delay in exercising a right is a waiver. A waiver is
+          effective only if in writing.</p>
+        <p><strong>27.5 Assignment.</strong> The Driver Partner may not assign this Agreement without hailO's prior
+          written consent. hailO may assign this Agreement to an Affiliate or successor at any time without the
+          Driver Partner's consent.</p>
+        <p><strong>27.6 Entire agreement.</strong> This Agreement, together with the Schedules and the policies
+          incorporated under Clause 26, constitutes the entire agreement between the Parties on its subject matter
+          and supersedes all prior discussions.</p>
+        <p><strong>27.7 Amendments.</strong> hailO may amend this Agreement at any time. Continued use of the
+          Platform following the posting of changes constitutes the Driver Partner's acceptance of such changes. It
+          is the Driver Partner's responsibility to periodically review this Agreement for changes.</p>
+        <p><strong>27.8 Force majeure.</strong> Neither Party is liable for failure or delay in performance caused
+          by events beyond its reasonable control, including natural disasters, epidemics, government action, or
+          internet/telecommunications outages.</p>
+        <p><strong>27.9 Survival.</strong> Clauses 7, 19, 20, 21, 25, 27, and 28, and any accrued obligations,
+          survive termination of this Agreement, for the period stated therein or, where none is stated, for three
+          (3) years. Data-protection obligations under Clause 20 survive for as long as personal data is retained, or
+          as required by applicable law, whichever is longer.</p>
+        <p><strong>27.10 Stamp duty.</strong> The Driver Partner shall bear all stamp duty and incidental charges in
+          relation to this Agreement, in accordance with the Maharashtra Stamp Act, 1899 (including by e-stamp), as
+          required for enforceability.</p>
+        <p><strong>27.11 Remedies cumulative.</strong> All remedies available to either Party under this Agreement,
+          statute, or common law are cumulative and not alternative, and may be enforced successively or
+          concurrently.</p>
+        <p><strong>27.12 Language.</strong> This Agreement is executed in the English language. Where any part of
+          this Agreement is explained or translated into Marathi, Hindi, or any other language for the Driver
+          Partner's convenience, the English text shall prevail in the event of any conflict or discrepancy.</p>
+
+        <h2 id="c28">28. Governing Law &amp; Jurisdiction</h2>
+        <p><strong>28.1</strong> This Agreement is governed by the laws of the Republic of India.</p>
+        <p><strong>28.2</strong> Subject to Clause 25, the courts at Kolhapur, Maharashtra shall have exclusive
+          jurisdiction over matters not referable to arbitration and over interim relief and enforcement of any
+          arbitral award.</p>
+
+        <h2 id="c29">29. Declaration &amp; Acknowledgement</h2>
+        <p>The Driver Partner confirms that:</p>
+        <ul class="checklist">
+          <li>(a) all information provided is true and accurate;</li>
+          <li>(b) they have read and understood this Agreement and consent to the background verification referred
+            to in Clause 8.3;</li>
+          <li>(c) where the Driver Partner is not fluent in English, the terms have been explained to them in a
+            language they understand (Marathi/Hindi); and</li>
+          <li>(d) they accept all risks and liabilities described herein and agree to all terms of this Agreement.
+          </li>
+        </ul>
+        <!-- <h2 id="c8">8. Obligations &amp; Prohibited Conduct</h2>
+        <ul class="checklist">
+          <li><strong>8.1</strong> The Driver Partner shall not hold more than one active hailO registration, and
+            shall not sell, trade, or otherwise transfer their registration to any other person.</li>
+          <li><strong>8.2</strong> The Driver Partner shall provide true and accurate information at all times, and
+            shall not withhold any information that could reasonably affect their ability to perform the Platform
+            Services. hailO reserves the right to deregister, suspend, or terminate the Driver Partner, and to take
+            appropriate legal proceedings, without prior notice, in case of inaccurate information.</li>
+          <li><strong>8.3</strong> The Driver Partner acknowledges that they may be subject to background and
+            driving-record verification (“BGV”) from time to time. If any discrepancy is found during or after BGV,
+            this Agreement shall stand void with immediate effect, at hailO's sole discretion.</li>
+          <li><strong>8.4</strong> The Driver Partner shall not use any information pertaining to hailO's customers,
+            including confidential information, for any purpose other than performing their obligations under this
+            Agreement.</li>
+          <li><strong>8.5</strong> The Driver Partner shall ensure that all documents pertaining to the vehicle
+            (including comprehensive valid insurance) and to each consignment (including invoices, description of
+            goods, and any customer-obtained insurance) are obtained and retained during the term of this Agreement.
+          </li>
+          <li><strong>8.6</strong> The Driver Partner shall maintain a functioning smartphone with an active mobile
+            number and active internet connection, capable of receiving and sending trip-related communications, and
+            shall be reasonably familiar with prominent destinations and routes within the territory in which the
+            Platform Services are rendered.</li>
+          <li><strong>8.7</strong> Any pilferage or tampering of the vehicle or a consignment during the performance
+            of the Platform Services shall be reported to hailO immediately. For any issue relating to the Platform
+            Services, the Driver Partner shall contact the TA (Travel Associate). If the Driver Partner has a
+            complaint against the TA, the Driver Partner shall contact the DTA.</li>
+          <li><strong>8.8</strong> The Driver Partner shall be solely liable for any claim or demand raised by a
+            third party in respect of the vehicle (whether owned or hired), including as to title. hailO may or may
+            not independently verify the details of the vehicle used, and shall not be held responsible for any
+            dispute as to title between the registered owner and the Driver Partner.</li>
+          <li><strong>8.9</strong> The Platform Services shall be personally performed by the registered Driver
+            Partner only. The Driver Partner shall not permit any other person, whether or not related to the Driver
+            Partner, to drive the vehicle or perform any Platform Services on their behalf or under their
+            registration. Breach of this Clause shall entitle hailO to immediately suspend or terminate the Driver
+            Partner's registration, without prejudice to any other remedy available to hailO.</li>
+        </ul>
+
+        <h2 id="c9">9. Prohibited Goods</h2>
+        <div class="prohib-grid">
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Explosives, firearms,
+              ammunition</span></div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Narcotic drugs</span></div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Hazardous chemicals</span>
+          </div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Counterfeit goods</span>
+          </div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Cash, jewellery, precious
+              metals</span></div>
+          <div class="prohib-item"><span class="pi-icon">🚫</span><span class="pi-text">Live animals</span></div>
+        </div>
+        <p><strong>9.1</strong> The Driver Partner shall not knowingly accept or transport any parcel containing
+          prohibited or illegal goods, including but not limited to those listed above, or any article prohibited
+          under applicable law.</p>
+        <p><strong>9.2</strong> The customer shall be solely responsible for the contents of the parcel and any
+          legal consequences arising therefrom.</p>
+
+        <h2 id="c10">10. Platform Integrity</h2>
+        <p><strong>10.1</strong> The Driver Partner shall not manipulate GPS location, create fake trips, use
+          unauthorized software, operate multiple accounts, or engage in any fraudulent activity intended to obtain
+          wrongful benefits.</p>
+        <p><strong>10.2</strong> Any such conduct shall constitute a material breach of this Agreement and may
+          result in immediate suspension or termination, without prejudice to hailO's legal remedies.</p>
+
+        <h2 id="c11">11. Standard of Service &amp; Non-Disparagement</h2>
+        <p><strong>11.1</strong> The Driver Partner shall render the Platform Services with the care, skill, and
+          diligence of a reasonably prudent operator (“RPO”) — that is, exercising the skill, diligence, prudence,
+          and foresight reasonably expected of a skilled and experienced operator complying with all Applicable Law,
+          engaged in the same type of undertaking under similar circumstances — and shall ensure that any person
+          engaged by the Driver Partner does the same.</p>
+        <p><strong>11.2</strong> The Driver Partner shall render the Platform Services in strict compliance with the
+          Motor Vehicles Act, 1988, the Motor Transport Workers Act, 1961, the Carriage by Road Act, 2007 and Rules,
+          2011 (where applicable), and all other Applicable Law.</p>
+        <p><strong>11.3</strong> The Driver Partner shall not, and shall ensure that persons engaged by them do not,
+          disparage or make negative public statements (oral or written) about hailO or its officers, employees,
+          directors, or representatives.</p>
+        <p><strong>11.4</strong> Breach of this Clause entitles hailO to terminate this Agreement and claim
+          indemnification from the Driver Partner in accordance with Clause 19.</p>
+
+        <h2 id="c12">12. Vehicle Branding &amp; Use of Images</h2>
+        <p><strong>12.1</strong> Where hailO mandates vehicle branding, the Driver Partner shall display such
+          branding and shall not opt out of it during the term of this Agreement, except with hailO's prior written
+          consent. Brand affixation shall only be carried out through vendors identified by hailO.</p>
+        <p><strong>12.2</strong> The Driver Partner consents to hailO's use of their photograph and vehicle
+          photographs in hailO's internal communications, training material, and marketing/advertising (including
+          online, social media, and offline), and to hailO sharing such images with third parties for these
+          purposes, subject to hailO's Privacy Policy.</p>
+
+        <h2 id="c13">13. Safety, Vehicle &amp; Insurance</h2>
+        <p><strong>13.1</strong> The Driver Partner shall maintain, at their own cost, throughout the term: (a) a
+          valid driving licence; (b) valid vehicle registration (RC); (c) a current PUC certificate; and (d) valid
+          third-party motor insurance as required under the Motor Vehicles Act, 1988.</p>
+        <p><strong>13.2</strong> For commercial or bike-taxi operations, the Driver Partner shall additionally hold
+          the required commercial permit and commercial-use insurance, and shall comply with applicable state
+          transport/RTO requirements, including any specific to the State of Maharashtra.</p>
+        <p><strong>13.3</strong> The Driver Partner shall observe road-safety norms, including mandatory helmet use
+          for two-wheelers, which shall also be compulsory for any pillion passenger, with the helmet to be provided
+          by the Driver Partner, and seatbelt use for four-wheelers. The Driver Partner shall keep the vehicle in
+          good operating condition and report accidents to the TA (Travel Associate) and the appropriate authorities
+          promptly.</p>
+        <div class="note-box">🚗 <strong>13.4</strong> No vehicle is provided by hailO under any circumstances. All
+          costs of acquisition, maintenance, insurance, and running of the vehicle are borne solely by the Driver
+          Partner, and hailO shall not be liable to settle any claim or pay any amount in connection with the
+          vehicle.</div>
+
+        <h2 id="c14">14. Vehicle Standards</h2>
+        <p><strong>14.1</strong> The Driver Partner shall ensure that the vehicle remains clean, hygienic,
+          roadworthy, and in good mechanical condition at all times. Failure to maintain minimum quality and
+          cleanliness standards may result in suspension from the Platform.</p>
+        <p><strong>14.2</strong> hailO may, on reasonable notice, inspect the vehicle and require production of the
+          documents referred to in Clauses 13 and 14 to verify ongoing compliance. Failure to produce valid documents
+          or to permit such inspection may result in restriction of access or suspension of the account, at hailO's
+          discretion.</p>
+
+        <h2 id="c15">15. Accidents and Emergencies</h2>
+        <p><strong>15.1</strong> In the event of any accident, injury, theft, or emergency during the course of a
+          trip or delivery, the Driver Partner shall first take all reasonable steps to ensure the safety of affected
+          persons and notify the appropriate emergency authorities where required.</p>
+        <p><strong>15.2</strong> The Driver Partner shall thereafter inform the TA (Travel Associate) as soon as
+          reasonably practicable and cooperate with any investigation.</p>
+        <div class="warn-box">
+          <p>⚠️ <strong>15.3</strong> The Driver Partner is not entitled to claim reimbursement of hospitalisation or
+            medical expenses incurred by the Driver Partner, or by their family members, in connection with any
+            accident, injury, or illness arising during or in connection with the Platform Services.</p>
+        </div>
+
+        <h2 id="c16">16. Pink Rides (Female-Only Services)</h2>
+        <p><strong>16.1</strong> All terms of this Agreement apply equally to Platform Services rendered under
+          hailO's Pink Rides (female-only) category, in addition to the specific conditions set out in this Clause.
+        </p>
+        <p><strong>16.2</strong> Where the Driver Partner's registration includes Pink Rides, the vehicle shall be
+          driven only by the registered female Driver Partner. No male driver shall operate the vehicle for any trip
+          booked under Pink Rides.</p>
+        <p><strong>16.3</strong> A Pink Rides booking may only be made by a female customer. A child below eighteen
+          (18) years of age may be a co-passenger only if accompanied by an adult female. No male passenger is
+          permitted on a Pink Rides trip.</p>
+        <p><strong>16.4</strong> If a male passenger attempts to board or is found to have booked a Pink Rides trip,
+          the Driver Partner has the right to immediately cancel the trip and shall promptly inform the TA. hailO
+          reserves the right to take appropriate action, including suspension or termination under Clause 4, against
+          the customer or Driver Partner as applicable.</p>
+        <p><strong>16.5</strong> Pink Rides is limited strictly to passenger ride bookings. It does not extend to,
+          and shall not be used for, parcel or delivery services, this restriction being maintained specifically in
+          the interest of women's safety.</p>
+
+        <h2 id="c17">17. Refusal or Termination of Service</h2>
+        <p><strong>17.1</strong> The Driver Partner may refuse or terminate a ride or delivery where the customer is
+          abusive, violent, intoxicated to an extent that poses a safety risk, engages in unlawful conduct, or
+          requests any activity contrary to law or this Agreement.</p>
+        <p><strong>17.2</strong> The Driver Partner shall promptly report such incidents to the TA (Travel
+          Associate) through the prescribed reporting mechanism.</p>
+
+        <h2 id="c18">18. Lost and Found Property</h2>
+        <p><strong>18.1</strong> Any property left behind by a customer in the Driver Partner's vehicle shall be
+          reported to the TA (Travel Associate) as soon as reasonably practicable. The Driver Partner shall make
+          reasonable efforts to safeguard such property until further instructions are received.</p>
+        <p><strong>18.2</strong> hailO acts only as a facilitator and shall not be liable for any loss, damage, or
+          failure to recover such property.</p>
+
+        <h2 id="c19">19. Liability, Indemnity &amp; Limitation</h2>
+        <p><strong>19.1</strong> The Driver Partner is responsible for accidents, injury or death, loss/theft/damage
+          of goods, legal violations, vehicle-related issues, and customer claims arising in connection with the
+          Platform Services performed by them.</p>
+        <p><strong>19.2</strong> The Driver Partner shall exercise due care in the handling and transport of the
+          customer's goods and shall be responsible for their safe delivery to the customer. The Driver Partner shall
+          be liable for any damage to the goods occurring during transit up to the point of delivery, save where such
+          damage is caused by an inherent defect in the goods, improper packaging by the customer, or force majeure.
+        </p>
+        <div class="strong-box">
+          <h3>⚖️ 19.3 Indemnity by the Driver Partner</h3>
+          <p>The Driver Partner shall indemnify and keep indemnified and hold hailO harmless from and against any and
+            all liabilities, losses, charges, expenses (including legal fees on a full-indemnity basis), claims,
+            demands, actions, and proceedings that hailO may incur or sustain, directly or indirectly, arising from:
+            (a) any breach by the Driver Partner of this Agreement; (b) the Driver Partner's negligence or wilful
+            misconduct; (c) any claim relating to the vehicle's title, ownership, or third-party use; or (d) any act
+            or omission of a person engaged by the Driver Partner. The Driver Partner shall pay such sums forthwith
+            on demand by hailO in writing.</p>
+        </div>
+        <p><strong>19.4</strong> There shall be no equivalent limitation on the Driver Partner's liability to hailO
+          under this Agreement or by reason of the indemnity in Clause 19.3.</p>
+        <p><strong>19.5</strong> Each Party shall bear its own costs in connection with its obligations under this
+          Agreement and its own advocates' fees, save as otherwise set out in Clause 27.10 (Stamp duty).</p>
+
+        <div class="divider"></div>
+
+        <h2 id="c20">20. Confidentiality &amp; Data Protection</h2>
+        <p><strong>20.1 Confidentiality.</strong> Customer data, pricing, platform data, and each Party's proprietary
+          information (“Confidential Information”) are strictly confidential and must not be shared, sold, or
+          misused, either during the term or for three (3) years after its end.</p>
+        <p><strong>20.2 Personal data.</strong> The Driver Partner consents to hailO collecting, storing, using,
+          transferring, and sharing their Driver Information (personally identifiable or not) for onboarding,
+          verification, regulatory compliance, internal record-keeping, statutory disclosure, and platform
+          operations, as permitted under applicable law and hailO's Privacy Policy (hailo.co.in).</p>
+        <p><strong>20.3</strong> hailO shall process personal data in accordance with the Digital Personal Data
+          Protection Act, 2023, the Aadhaar Act, 2016, and applicable law, on the principles of purpose limitation,
+          data minimisation, storage limitation, and reasonable security. Aadhaar data, where collected, shall be
+          masked and handled in accordance with applicable law.</p>
+        <p><strong>20.4</strong> The Driver Partner shall not collect, store, or misuse customer personal data
+          obtained through the Platform.</p>
+
+        <h2 id="c21">21. Intellectual Property</h2>
+        <p><strong>21.1</strong> hailO remains the owner of all intellectual property it owns or controls as of the
+          Effective Date, or develops or acquires thereafter, including the hailO name, logo, and branding. Nothing
+          in this Agreement transfers any intellectual property rights of either Party to the other.</p>
+        <p><strong>21.2</strong> Any intellectual property created in the course of, or in connection with, this
+          Agreement (excluding the Driver Partner's pre-existing intellectual property) shall be owned exclusively by
+          hailO. Nothing in this Agreement grants the Driver Partner any licence to use the hailO name or logo except
+          as expressly permitted under Clause 12.</p>
+
+        <h2 id="c22">22. Grievance Redressal</h2>
+        <p><strong>22.1</strong> hailO designates a Grievance Officer whose name and contact details are published
+          at hailo.co.in. The Driver Partner may escalate any grievance to the Grievance Officer, who shall
+          acknowledge and respond within the timelines prescribed by applicable law.</p>
+
+        <h2 id="c23">23. Compliance with Laws</h2>
+        <p><strong>23.1</strong> hailO shall obtain and maintain all licences, registrations, and approvals required
+          for operating the Platform, including applicable transport, platform-worker, data-protection, and (where
+          relevant) food-delivery obligations.</p>
+        <p><strong>23.2</strong> The Driver Partner shall comply with the Motor Vehicles Act, 1988, GST laws, local
+          transport laws, food-safety laws (where applicable), and all other applicable Indian law, and shall hold
+          all licences, permits, and approvals necessary for the vehicle used, at their own cost.</p>
+        <p><strong>23.3</strong> Each Party shall comply with applicable platform-worker social-security obligations
+          under the Code on Social Security, 2020, and rules notified thereunder, to the extent applicable to it and
+          as implemented.</p>
+
+        <h2 id="c24">24. Training</h2>
+        <p><strong>24.1</strong> hailO may require the Driver Partner to participate in onboarding sessions,
+          refresher training, safety programmes, or policy updates from time to time. Continued access to the
+          Platform may be subject to successful completion of such programmes.</p>
+
+        <h2 id="c25">25. Dispute Resolution &amp; Arbitration</h2>
+        <p><strong>25.1 Escalation.</strong> The Parties shall first attempt to resolve any dispute amicably,
+          including escalation to the Grievance Officer, within thirty (30) days.</p>
+        <p><strong>25.2 Arbitration.</strong> Any dispute not resolved amicably shall be referred to arbitration by
+          a sole arbitrator, governed by the Arbitration and Conciliation Act, 1996. The seat and venue of
+          arbitration shall be Kolhapur, Maharashtra, India, and the language of arbitration shall be English. The
+          arbitration shall be kept confidential by the Parties, save as required by law.</p>
+        <p><strong>25.3 Appointment.</strong> The sole arbitrator shall be appointed by mutual consent within thirty
+          (30) days of a Party invoking arbitration, failing which the arbitrator shall be appointed under Section 11
+          of the Arbitration and Conciliation Act, 1996.</p>
+        <p><strong>25.4 Interim relief.</strong> Nothing in this Clause prevents either Party from seeking interim
+          or injunctive relief from the competent courts at Kolhapur, Maharashtra, where necessary.</p>
+        <p><strong>25.5</strong> The decision of the arbitrator shall be final and binding on the Parties.</p>
+        <ul>
+          <li><strong>Governing Law:</strong> India</li>
+          <li><strong>Seat &amp; Venue of Arbitration:</strong> Kolhapur, Maharashtra</li>
+          <li><strong>Language:</strong> English</li>
+        </ul>
+
+        <h2 id="c26">26. Website Terms &amp; Policies</h2>
+        <p><strong>26.1</strong> The Privacy Policy, Payment Policy, Code of Conduct, and other policies applicable
+          to Driver/Rider Partners as published on hailO's official website (hailo.co.in) are incorporated into this
+          Agreement by reference, and hailO may amend them from time to time. It is the Driver Partner's
+          responsibility to periodically review such policies for changes.</p>
+        <p><strong>26.2 Order of precedence.</strong> In the event of a conflict, the terms of this Agreement shall
+          prevail over the website terms and policies, which shall prevail over any general communications.</p>
+
+        <h2 id="c27">27. General Terms</h2>
+        <p><strong>27.1 Electronic record.</strong> This Agreement is an electronic record under the Information
+          Technology Act, 2000, generated by a computer system, and does not require a physical or digital signature
+          to be valid. The Driver Partner's Acceptance is a valid and binding consent to this Agreement.</p>
+        <p><strong>27.2 Notices.</strong> All notices shall be in writing and sent to the addresses above (or as
+          updated), by email, registered post, courier, or in-app notification. Notices are deemed received on the
+          date of acknowledgment, or, for email/in-app, on the next business day.</p>
+        <p><strong>27.3 Severability.</strong> If any provision is held invalid or unenforceable, the remaining
+          provisions remain in full force, and the Parties shall negotiate in good faith a valid replacement
+          reflecting the original intent.</p>
+        <p><strong>27.4 Waiver.</strong> No failure or delay in exercising a right is a waiver. A waiver is
+          effective only if in writing.</p>
+        <p><strong>27.5 Assignment.</strong> The Driver Partner may not assign this Agreement without hailO's prior
+          written consent. hailO may assign this Agreement to an Affiliate or successor at any time without the
+          Driver Partner's consent.</p>
+        <p><strong>27.6 Entire agreement.</strong> This Agreement, together with the Schedules and the policies
+          incorporated under Clause 26, constitutes the entire agreement between the Parties on its subject matter
+          and supersedes all prior discussions.</p>
+        <p><strong>27.7 Amendments.</strong> hailO may amend this Agreement at any time. Continued use of the
+          Platform following the posting of changes constitutes the Driver Partner's acceptance of such changes. It
+          is the Driver Partner's responsibility to periodically review this Agreement for changes.</p>
+        <p><strong>27.8 Force majeure.</strong> Neither Party is liable for failure or delay in performance caused
+          by events beyond its reasonable control, including natural disasters, epidemics, government action, or
+          internet/telecommunications outages.</p>
+        <p><strong>27.9 Survival.</strong> Clauses 7, 19, 20, 21, 25, 27, and 28, and any accrued obligations,
+          survive termination of this Agreement, for the period stated therein or, where none is stated, for three
+          (3) years. Data-protection obligations under Clause 20 survive for as long as personal data is retained, or
+          as required by applicable law, whichever is longer.</p>
+        <p><strong>27.10 Stamp duty.</strong> The Driver Partner shall bear all stamp duty and incidental charges in
+          relation to this Agreement, in accordance with the Maharashtra Stamp Act, 1899 (including by e-stamp), as
+          required for enforceability.</p>
+        <p><strong>27.11 Remedies cumulative.</strong> All remedies available to either Party under this Agreement,
+          statute, or common law are cumulative and not alternative, and may be enforced successively or
+          concurrently.</p>
+        <p><strong>27.12 Language.</strong> This Agreement is executed in the English language. Where any part of
+          this Agreement is explained or translated into Marathi, Hindi, or any other language for the Driver
+          Partner's convenience, the English text shall prevail in the event of any conflict or discrepancy.</p>
+
+        <h2 id="c28">28. Governing Law &amp; Jurisdiction</h2>
+        <p><strong>28.1</strong> This Agreement is governed by the laws of the Republic of India.</p>
+        <p><strong>28.2</strong> Subject to Clause 25, the courts at Kolhapur, Maharashtra shall have exclusive
+          jurisdiction over matters not referable to arbitration and over interim relief and enforcement of any
+          arbitral award.</p>
+
+        <h2 id="c29">29. Declaration &amp; Acknowledgement</h2>
+        <p>The Driver Partner confirms that:</p>
+        <ul class="checklist">
+          <li>(a) all information provided is true and accurate;</li>
+          <li>(b) they have read and understood this Agreement and consent to the background verification referred
+            to in Clause 8.3;</li>
+          <li>(c) where the Driver Partner is not fluent in English, the terms have been explained to them in a
+            language they understand (Marathi/Hindi); and</li>
+          <li>(d) they accept all risks and liabilities described herein and agree to all terms of this Agreement.
+          </li>
+        </ul> -->
+
+        <div class="divider"></div>
+
+        <h2 id="signatures">Signatures</h2>
+        <p> <strong>IN WITNESS WHEREOF,</strong>  the Parties have executed this Agreement on the date first written above.</p>
+        <div class="sig-grid">
+          <div class="sig-box">
+            <div class="sig-label">For S V SANGHVI TRANSTRADE TECHNO PRIVATE LIMITED, through its authorised
+              representative</div>
+            <div class="sig-line"></div>
+            <div class="sig-name">Date: _____________________<br>Name: _____________________<br>Designation:
+              ___________________<br>Signature: _____________________</div>
+          </div>
+          <div class="sig-box">
+            <div class="sig-label">For the Driver Partner</div>
+            <div class="sig-line"></div>
+            <div class="sig-name">Date: _____________________<br>Name: _____________________<br>Signature:
+              _____________________</div>
+          </div>
+        </div>
+        <p style="margin-top:14px">Witness (optional): Name: ___________________ &nbsp; Signature:
+          ___________________</p>
+
+        <div class="divider"></div>
+
+        <h2 id="sched1">Schedule 1 — Documents Required</h2>
+        <h3>Documents Required for the Driver</h3>
+        <ul class="checklist">
+          <li>Passport-size photograph</li>
+          <li>Aadhaar Card</li>
+          <li>PAN Card</li>
+          <li>Driving Licence</li>
+          <li>Bank passbook / proof of bank account</li>
+          <li>Police Verification Certificate</li>
+          <li>Email address and mobile number</li>
+        </ul>
+        <h3>Documents Required for Tempo Registration</h3>
+        <ul class="checklist">
+          <li>RC Book (Registration Certificate)</li>
+          <li>Insurance Certificate (including third-party motor insurance)</li>
+          <li>PUC (Pollution Under Control) Certificate</li>
+          <li>Fitness Certificate</li>
+          <li>Permit (Mandatory for tempos above 1.5 tonnes)</li>
+          <li>Driver's photograph, email address and mobile number</li>
+        </ul>
+        <h3>Documents Required for Auto / Car Registration</h3>
+        <ul class="checklist">
+          <li>RC Book (Registration Certificate)</li>
+          <li>Insurance Certificate (including third-party motor insurance)</li>
+          <li>PUC (Pollution Under Control) Certificate</li>
+          <li>Fitness Certificate</li>
+          <li>Commercial permit (where applicable)</li>
+          <li>Driver's Badge Number</li>
+          <li>Driver's photograph, email address and mobile number</li>
+        </ul>
+        <h3>Documents Required for Bike Taxi Registration</h3>
+        <ul class="checklist">
+          <li>RC Book (Registration Certificate)</li>
+          <li>Insurance Certificate (including third-party motor insurance)</li>
+          <li>PUC (Pollution Under Control) Certificate</li>
+          <li>Commercial permit (where applicable)</li>
+          <li>Driver's photograph, email address and mobile number</li>
+        </ul>
+
+        <h2 id="sched2">Schedule 2 — Document Verification Declaration</h2>
+        <p>I, _______________________________, authorised representative for S V Sanghvi Transtrade Techno
+Private Limited, hereby declare that I have personally and thoroughly checked and verified all of the
+documents set out in Schedule 1, and I confirm that the documents are complete, genuine, and in order for
+onboarding.
+        </p>
+        <div class="sig-box" style="max-width:420px">
+          <div class="sig-label">For S V Sanghvi Transtrade Techno Private Limited, through its authorised
+            representative</div>
+          <div class="sig-line"></div>
+          <div class="sig-name">Date: _____________________<br>Name: _____________________<br>Designation:
+            _____________________<br>Signature: _____________________</div>
+        </div>
+
+        <h2 id="sched3">Schedule 3 — Vehicle, Driver &amp; Bank Account Details</h2>
+        <h3>1. Vehicle Details</h3>
+        <ul class="checklist">
+          <li>Vehicle Manufacture Year: _______________________________</li>
+          <li>Vehicle Model: _______________________________</li>
+          <li>Vehicle Registration No.: _______________________________</li>
+          <li>Vehicle Owner Name (if different from Driver Partner): _______________________________</li>
+        </ul>
+        <h3>2. Driver Details</h3>
+        <ul class="checklist">
+          <li>Driver's Name: _______________________________</li>
+          <li>Mobile Number registered with hailO: _______________________________</li>
+          <li>Personal Contact Number: _______________________________</li>
+          <li>Driving Licence Number: _______________________________</li>
+          <li>Driving Licence Expiry Date: _______________________________</li>
+          <li>Aadhaar Number of the Driver: _______________________________</li>
+        </ul>
+        <h3>3. Bank Account Details</h3>
+        <ul class="checklist">
+          <li>Bank Name: _______________________________</li>
+          <li>Account Number: _______________________________</li>
+          <li>Account Holder's Name: _______________________________</li>
+          <li>Branch Name and Address: _______________________________</li>
+          <li>IFSC Code: _______________________________</li>
+        </ul>
+        <h3>4. Statutory Details</h3>
+        <ul class="checklist">
+          <li>Permanent Account Number (PAN): _______________________________</li>
+          <li>GSTIN (if registered): _______________________________</li>
+        </ul>
+        <div class="note-box">📌 Unless and until the Driver Partner intimates hailO otherwise in writing, the Driver Partner shall be deemed
+unregistered under GST law for the purposes of this Agreement.</div>
+        <p>Declaration: I declare that the above information is true and correct. Any change in the above information shall be
+duly intimated by me to hailO in advance.</p>
+        <p>Date: _____________________ &nbsp; <br> Name: _____________________  &nbsp; <br> Signature (Driver Partner):
+          _____________________</p>
+
+        <h2 id="sched4">Schedule 4 — No Objection Certificate</h2>
+        <p style="font-size:13px;color:var(--text-muted)">(Applicable only where the vehicle is not owned by the
+          Driver Partner)</p>
+        <p><strong>TO WHOM IT MAY CONCERN</strong></p>
+        <p>I am the owner of the vehicle described in Schedule 3. I hereby authorise the Driver Partner named in this Agreement
+to engage my vehicle and to enter into this Agreement with S V Sanghvi Transtrade Techno Private Limited (hailO). I
+further authorise the Driver Partner to collect any payments or compensation in respect of the Platform Services
+performed using my vehicle. I confirm that I have no objection to the above arrangement or to any of the commercial
+transactions with hailO arising from it.</p>
+        <p>TThanking you,</p>
+        <p>Vehicle Owner<br>
+          Date: _____________________<br>
+          Name: _____________________<br>
+          Phone Number: _____________________<br>
+          Signature: _____________________</p>
+
+        <div class="contact-box" style="margin-top:24px">
+          <strong>Legal Team — S V SANGHVI TRANSTRADE TECHNO PRIVATE LIMITED</strong><br>
+          SH NO 1509, C Ward, Laxmipuri, Munisuvrat Plaza<br>
+          Kolhapur, Maharashtra – 416002<br>
+          📧 <a href="mailto:info@hailo.co.in">info@hailo.co.in</a><br>
+          ⏰ Monday to Friday (10 AM – 6 PM)
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:16px">Effective from 25th July 2026.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="ft-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+          <div class="logo-pill"><img src="whitelogo.png" alt="" height="50px" width="120px"></div>
+          <span
+            style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:1.5px;text-transform:uppercase">by
+            transtrade</span>
+        </div>
+        <p>Food, medicines, essentials, or parcels — hailO by Transtrade brings everything to your doorstep with care,
+          convenience and complete peace of mind.</p>
+        <div class="socials">
+          <div class="soc-btn">📘</div>
+          <div class="soc-btn">📸</div>
+          <div class="soc-btn">🐦</div>
+          <div class="soc-btn">💼</div>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h5>Navigate</h5>
+        <a href="index.html">Home</a>
+        <a href="index.html">About Us</a>
+        <a href="index.html">Services</a>
+        <a href="index.html">FAQ</a>
+        <a href="index.html">Contact</a>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <a href="index.html">Food Delivery</a>
+        <a href="index.html">Pharmacy Delivery</a>
+        <a href="index.html">Parcel Delivery</a>
+        <a href="index.html">Groceries</a>
+        <a href="index.html">Tempo Delivery</a>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <a href="mailto:help@hailoapp.com">help@hailoapp.com</a>
+        <a href="index.html">Send a Message</a>
+        <a href="index.html">Partnership Enquiry</a>
+        <a href="index.html">Become a Rider</a>
+      </div>
+      <div class="ft-col">
+        <h5>Policies</h5>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <!-- <a href="refund-policy.html">Refund Policy</a> -->
+        <a href="customer-policy.html">Customer Policy</a>
+        <a href="service-agreement.html">Service Agreement</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 hailO by Transtrade. All rights reserved. Made with <span>♥</span> and a lot of bike grease.</p>
+      <p>🛵 Currently delivering near you</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMob() { document.getElementById('mobNav').classList.toggle('open') }
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').style.boxShadow = window.scrollY > 10 ? '0 2px 30px rgba(29,46,74,0.08)' : 'none'
+    })
+  </script>
+</body>
+
+</html> 

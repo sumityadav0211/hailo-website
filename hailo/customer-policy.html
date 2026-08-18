@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Terms &amp; Conditions — hailO by Transtrade</title>
+  <link rel="icon" type="image/png"  href="web-app-manifest-512x512.png">
+  <style>
+    :root {
+      --navy: #1D2E4A;
+      --navy-mid: #253a5e;
+      --yellow: #FFD760;
+      --orange: #FF7D4F;
+      --gradient: linear-gradient(135deg, #FFD760 0%, #FF7D4F 100%);
+      --dark: #3a3a3a;
+      --dark-mid: #4d4d4d;
+      --white: #ffffff;
+      --off-white: #F8F9FC;
+      --text: #1a1a2e;
+      --text-muted: #5a6480;
+      --text-light: #8b95b0;
+      --border: rgba(29, 46, 74, 0.1)
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+      object-fit: contain
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 100px;
+      transition: all 0.2s;
+      cursor: pointer
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+      background: var(--off-white)
+    }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: var(--white) !important
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(29, 46, 74, 0.25) !important
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all 0.3s
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 5%;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 199
+    }
+
+    .mobile-nav.open {
+      display: flex
+    }
+
+    .mobile-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s
+    }
+
+    .mobile-nav a:hover {
+      background: var(--off-white);
+      color: var(--navy)
+    }
+
+    footer {
+      background: var(--navy);
+      padding: 80px 8% 40px
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1300px;
+      margin: 0 auto 60px
+    }
+
+    .ft-brand {
+      flex: 2;
+      min-width: 0
+    }
+
+    .ft-col {
+      flex: 1;
+      min-width: 0
+    }
+
+    .ft-brand p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.8;
+      font-weight: 300;
+      margin: 16px 0 24px;
+      max-width: 300px
+    }
+
+    .ft-col h5 {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 20px
+    }
+
+    .ft-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: color 0.2s;
+      font-weight: 500
+    }
+
+    .ft-col a:hover {
+      color: var(--yellow)
+    }
+
+    .footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px
+    }
+
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.28);
+      font-weight: 400
+    }
+
+    .footer-bottom p span {
+      color: var(--orange)
+    }
+
+    .socials {
+      display: flex;
+      gap: 8px
+    }
+
+    .soc-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s
+    }
+
+    .soc-btn:hover {
+      background: rgba(255, 255, 255, 0.1)
+    }
+
+    .logo-pill {
+      background: var(--navy);
+      color: var(--yellow);
+      font-size: 17px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 100px;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 2px
+    }
+
+    .logo-pill .logo-o {
+      color: var(--orange)
+    }
+
+    .page-wrap {
+      padding-top: 68px;
+      min-height: 100vh;
+      background: var(--off-white)
+    }
+
+    .pol-hero {
+      background: var(--navy);
+      padding: 80px 8% 70px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .pol-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(255, 215, 96, 0.08) 0%, transparent 60%)
+    }
+
+    .pol-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 720px
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 215, 96, 0.12);
+      border: 1px solid rgba(255, 215, 96, 0.28);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: inline-block
+    }
+
+    .pol-hero h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 800;
+      color: white;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 16px
+    }
+
+    .pol-hero p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 16px;
+      font-weight: 300
+    }
+
+    /* Layout with TOC */
+    .layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 5% 100px;
+      align-items: start
+    }
+
+    .toc {
+      position: sticky;
+      top: 90px;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      box-shadow: 0 4px 24px rgba(29, 46, 74, 0.05);
+      max-height: calc(100vh - 110px);
+      overflow-y: auto
+    }
+
+    .toc h4 {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .toc a {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 8px;
+      margin-bottom: 2px;
+      font-weight: 500;
+      transition: all 0.2s
+    }
+
+    .toc a:hover {
+      background: var(--off-white);
+      color: var(--navy)
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 52px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 40px rgba(29, 46, 74, 0.06)
+    }
+
+    .card h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 40px 0 12px;
+      padding-left: 14px;
+      border-left: 3px solid var(--orange);
+      scroll-margin-top: 90px
+    }
+
+    .card h2:first-of-type {
+      margin-top: 0
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 18px 0 8px
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--dark-mid);
+      line-height: 1.85;
+      margin-bottom: 14px
+    }
+
+    .card ul {
+      padding-left: 22px;
+      margin-bottom: 16px
+    }
+
+    .card li {
+      font-size: 15px;
+      color: var(--dark-mid);
+      line-height: 1.7;
+      margin-bottom: 6px
+    }
+
+    .card a {
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 600
+    }
+
+    .card a:hover {
+      text-decoration: underline
+    }
+
+    .card strong {
+      color: var(--navy);
+      font-weight: 700
+    }
+
+    .warn-box {
+      background: rgba(255, 125, 79, 0.08);
+      border: 1px solid rgba(255, 125, 79, 0.3);
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin: 16px 0
+    }
+
+    .warn-box h3 {
+      color: #c0340a;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 14px
+    }
+
+    .warn-box li {
+      color: #7a2a10;
+      font-size: 14px
+    }
+
+    .note-box {
+      background: rgba(255, 215, 96, 0.15);
+      border: 1px solid rgba(255, 215, 96, 0.5);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--navy);
+      line-height: 1.7
+    }
+
+    .contact-box {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 2;
+      color: var(--dark-mid)
+    }
+
+    @media(max-width:1024px) {
+      .footer-top {
+        flex-wrap: wrap;
+        gap: 40px
+      }
+
+      .ft-brand {
+        flex: 1 1 100%
+      }
+
+      .ft-col {
+        flex: 1 1 calc(25% - 30px);
+        min-width: 140px
+      }
+    }
+
+    @media(max-width:800px) {
+      .layout {
+        grid-template-columns: 1fr
+      }
+
+      .toc {
+        display: none
+      }
+
+      .card {
+        padding: 28px 22px
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav-links {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      footer {
+        padding: 60px 5% 32px
+      }
+
+      .footer-top {
+        flex-direction: column;
+        gap: 32px
+      }
+
+      .ft-brand,
+      .ft-col {
+        flex: 1 1 100%
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px
+      }
+    }
+
+    @media(max-width:600px) {
+      .pol-hero {
+        padding: 60px 5% 50px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav id="mainNav">
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="hailO" class="logo-img"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">About</a></li>
+      <li><a href="index.html">Services</a></li>
+      <li><a href="index.html">FAQ</a></li>
+      <li><a href="index.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-nav" id="mobNav">
+    <a href="index.html">Home</a><a href="index.html">About</a><a href="index.html">Services</a><a
+      href="index.html">FAQ</a>
+    <a href="index.html" style="color:var(--navy);font-weight:800">Contact Us</a>
+  </div>
+
+  <div class="page-wrap">
+    <div class="pol-hero">
+      <div class="pol-hero-inner">
+        <div class="badge"><span class="badge-dot"></span> Legal</div>
+        <h1>Customer Terms &amp; Conditions</h1>
+        <p>Terms governing the use of hailO services as a Customer, Consignor, or Sender</p>
+        <p style="margin-top:8px;font-size:13px;color:rgba(255,255,255,0.4)">Effective from 25th July 2026</p>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="toc">
+        <h4>Contents</h4>
+        <a href="#s1">1. Introduction</a>
+        <a href="#s2">2. Definitions</a>
+        <a href="#s3">3. Scope of Services</a>
+        <a href="#s4">4. Acceptance of Terms</a>
+        <a href="#s5">5. Role of hailO</a>
+        <a href="#s6">6. Account Registration</a>
+        <a href="#s7">7. Customer Responsibility</a>
+        <a href="#s8">8. Pricing &amp; Payment</a>
+        <a href="#s9">9. Load Assistance</a>
+        <a href="#s10">10. Booking Details</a>
+        <a href="#s11">11. OTP Verification</a>
+        <a href="#s12">12. Packaging &amp; Special Goods</a>
+        <a href="#s13">13. Pink Rides Policy</a>
+        <a href="#s14">14. Restricted &amp; Prohibited Items</a>
+        <a href="#s15">15. Liability</a>
+        <a href="#s16">16. Insurance Disclaimer</a>
+        <a href="#s17">17. Claims</a>
+        <a href="#s18">18. Delivery &amp; Delays</a>
+        <a href="#s19">19. Cancellation</a>
+        <a href="#s20">20. Non-Payment &amp; Lien</a>
+        <a href="#s21">21. Account Suspension</a>
+        <a href="#s22">22. Account Closure</a>
+        <a href="#s23">23. Fraudulent Activity</a>
+        <a href="#s24">24. Force Majeure</a>
+        <a href="#s25">25. No Guarantee of Service</a>
+        <a href="#s26">26. GPS &amp; Network Services</a>
+        <a href="#s27">27. Third-Party Links</a>
+        <a href="#s28">28. Waiting Time &amp; Detention</a>
+        <a href="#s29">29. Failed Delivery &amp; RTO</a>
+        <a href="#s30">30. Access &amp; Site Conditions</a>
+        <a href="#s31">31. Customer Misdeclaration</a>
+        <a href="#s32">32. Damage During Transit</a>
+        <a href="#s33">33. Lost &amp; Found</a>
+        <a href="#s34">34. Customer Conduct</a>
+        <a href="#s35">35. Driver Partner Conduct</a>
+        <a href="#s36">36. Ratings &amp; Feedback</a>
+        <a href="#s37">37. Emergency Services</a>
+        <a href="#s38">38. SOS Feature</a>
+        <a href="#s39">39. No Cash Handling Liability</a>
+        <a href="#s40">40. Data &amp; Communication Consent</a>
+        <a href="#s41">41. Indemnity</a>
+        <a href="#s42">42. Evidence &amp; Claim Validation</a>
+        <a href="#s43">43. Intellectual Property</a>
+        <a href="#s44">44. Severability</a>
+        <a href="#s45">45. Waiver</a>
+        <a href="#s46">46. Governing Law &amp; Jurisdiction</a>
+        <a href="#s47">47. Dispute Resolution</a>
+        <a href="#s48">48. Modifications</a>
+        <a href="#s49">49. Entire Agreement</a>
+        <a href="#s50">50. Grievance Officer</a>
+        <a href="#s51">51. Contact Details</a>
+      </div>
+
+      <div class="card">
+        <h2 id="s1">1. Introduction</h2>
+        <p>These Terms and Conditions ("Terms") govern the use of the delivery, logistics, and passenger
+          transportation services provided by <strong>S V Sanghvi Transtrade Techno Pvt. Ltd.</strong> ("hailO",
+          "Company", "We", "Us", "Our"), a company operating a technology platform that connects Customers with
+          independent Driver Partners for the transportation of goods and passengers.</p>
+        <p>By accessing or using hailO's website, mobile application, or any related services (collectively, the
+          "Platform" or "Services"), you ("Customer", "You", "Your", "Consignor", "Sender", or "Passenger" as
+          applicable) agree to be bound by these Terms. If you do not agree to these Terms, you must discontinue use
+          of the Services immediately.</p>
+        <p>This document is an electronic record and does not require any physical or digital signature.</p>
+
+        <h2 id="s2">2. Definitions</h2>
+        <ul>
+          <li><strong>"Customer / Consignor / Sender / Passenger"</strong> – Any individual or entity availing
+            hailO's delivery, logistics, or passenger transportation services.</li>
+          <li><strong>"Services"</strong> – Transportation of goods, logistics facilitation, and passenger
+            ride-hailing services (including Pink Rides) offered through the Platform.</li>
+          <li><strong>"Application" / "Platform"</strong> – Any website, mobile application, or digital interface
+            used to access hailO's Services.</li>
+          <li><strong>"Driver Partner"</strong> – An independent, third-party service provider onboarded on the
+            Platform to provide transportation and delivery services to Customers.</li>
+          <li><strong>"Pink Rides"</strong> – A dedicated ride category on the Platform, operated by women Driver
+            Partners exclusively for women and child passengers, as further described in Section 13.</li>
+          <li><strong>"Account"</strong> – The registered profile created by the Customer on the Application to
+            avail the Services.</li>
+          <li><strong>"Applicable Laws"</strong> – All statutes, enactments, rules, regulations, notifications,
+            directions, and orders of any governmental or judicial authority in India applicable to the Services.
+          </li>
+        </ul>
+
+        <h2 id="s3">3. Scope of Services</h2>
+        <p>hailO provides a technology platform that facilitates:</p>
+        <ul>
+          <li>Transportation of goods by road (delivery and logistics)</li>
+          <li>Passenger transportation services, including the <strong>Pink Rides</strong> category</li>
+          <li>Any additional services introduced by hailO from time to time</li>
+        </ul>
+        <div class="note-box">🔔 hailO reserves the right to modify, suspend, add, or discontinue any Service, in
+          whole or in part, at its sole discretion and without prior notice.</div>
+
+        <h2 id="s4">4. Acceptance of Terms</h2>
+        <p>By creating an account or using the Services, you confirm that:</p>
+        <ul>
+          <li>You have read, understood, and agree to be bound by these Terms</li>
+          <li>You are at least 18 years of age and legally competent to enter into a binding contract under
+            Applicable Laws</li>
+          <li>All information you provide is accurate, current, and complete</li>
+        </ul>
+
+        <h2 id="s5">5. Role of hailO (Platform Disclaimer)</h2>
+        <p>hailO operates strictly as a technology platform and intermediary connecting Customers with independent
+          Driver Partners. hailO:</p>
+        <ul>
+          <li>Does not act as a transporter, carrier, or logistics provider</li>
+          <li>Does not own vehicles or employ Driver Partners</li>
+          <li>Does not guarantee the performance, availability, or conduct of any Driver Partner</li>
+          <li>Has no control over, and is not responsible for, the actual provision of transportation services,
+            which occurs as an independent arrangement between the Customer and the Driver Partner</li>
+        </ul>
+        <p>hailO shall not be liable for the acts, omissions, delays, misconduct, or negligence of any Driver
+          Partner.</p>
+
+        <h2 id="s6">6. Account Registration &amp; Security</h2>
+        <p>You must maintain an active personal account to use the Services, providing accurate name, contact
+          details, and any other information requested during registration. You are solely responsible for
+          maintaining the confidentiality of your account credentials and for all activity conducted through your
+          account. hailO shall not be liable for any loss arising from unauthorized use of your account. hailO
+          reserves the right to suspend or terminate any account found to contain false information, or involved in
+          fraud, misuse, or violation of these Terms.</p>
+
+        <h2 id="s7">7. Customer Responsibility</h2>
+        <p>You represent and warrant that:</p>
+        <ul>
+          <li>You own, or are duly authorized to send, transport, or accompany the goods or persons in question</li>
+          <li>The goods being transported are lawful and comply with all Applicable Laws</li>
+          <li>All booking details provided (pickup/drop location, nature of goods, passenger details, etc.) are
+            accurate and complete</li>
+        </ul>
+        <p>You agree to indemnify and keep indemnified hailO against any claims arising from incorrect information,
+          unlawful goods, or misuse of the Services.</p>
+
+        <h2 id="s8">8. Pricing &amp; Payment</h2>
+        <p>Charges displayed at the time of booking are indicative estimates. Final charges may vary based on actual
+          distance, time, load, waiting time, or service conditions.</p>
+        <p><strong>Payment Modes:</strong> UPI and cash only. Payment is to be made directly to the Driver Partner;
+          the choice of payment mode is at the Customer's discretion. hailO is not responsible for disputes arising
+          from direct payments made to Driver Partners.</p>
+        <p>As hailO acts solely as a technology platform, payments are made directly between the Customer and the
+          Driver Partner. Any refund, adjustment, or payment dispute shall be resolved directly between the Customer
+          and the Driver Partner. Non-payment or short payment may result in service suspension, account
+          restriction, or recovery action.</p>
+
+        <h2 id="s9">9. Load Assistance (Delivery &amp; Logistics)</h2>
+        <p>Loading and unloading assistance is not included in the base freight charge. If required, load assistance
+          must be requested at the time of booking and will be charged separately. If not pre-booked, the Driver
+          Partner is not obligated to provide loading/unloading assistance; any assistance rendered is at the
+          Customer's own risk. This <strong>excludes</strong> packing/unpacking, assembly/disassembly, and technical
+          handling.</p>
+        <p>In the case of tempo bookings, any loading or unloading assistance shall be subject to additional charges
+          to be discussed and settled directly with the Driver Partner. hailO is not responsible for arranging,
+          providing, or being a party to such assistance or charges. hailO is not liable for any damage or injury
+          occurring during loading or unloading.</p>
+
+        <h2 id="s10">10. Booking Details</h2>
+        <p>Customers must accurately provide:</p>
+        <ul>
+          <li>Pickup and drop-off location(s)</li>
+          <li>Description, quantity, and nature of goods (for delivery bookings), or number and details of
+            passengers (for ride bookings)</li>
+          <li>Any special handling requirements</li>
+        </ul>
+        <p>Incorrect or incomplete information may result in additional charges, refusal of service, cancellation,
+          or Customer liability for resulting damages.</p>
+
+        <h2 id="s11">11. OTP Verification</h2>
+        <p>Where the Platform requires OTP verification to commence or complete a Service, the Customer shall share
+          the OTP only with the assigned Driver Partner after verifying the Driver Partner's identity. Sharing the
+          OTP with any unauthorized person shall be at the Customer's sole risk, and hailO shall not be liable for
+          any resulting loss or misuse.</p>
+
+        <h2 id="s12">12. Packaging &amp; Special Category Goods (Delivery Services)</h2>
+        <p>The Customer is solely responsible for the proper, secure, and adequate packaging of all goods handed
+          over for transportation. hailO shall not be liable for loss, damage, deterioration, leakage, breakage, or
+          contamination arising from improper or insufficient packaging, the inherent nature of the goods, or normal
+          handling and vibration during transit.</p>
+        <div class="warn-box">
+          <h3>⚠️ Perishable &amp; Sensitive Goods — Transported Strictly at Customer's Risk</h3>
+          <ul>
+            <li>Groceries and food items</li>
+            <li>Restaurant or cooked food</li>
+            <li>Ice cream, frozen goods, and cold beverages</li>
+            <li>Cakes, bakery products, and flowers</li>
+            <li>Pharmaceutical, medical, or temperature-sensitive items</li>
+            <li>Any other consumable or perishable goods</li>
+          </ul>
+        </div>
+        <p>hailO shall not be responsible for spoilage, decay, melting, leakage, breakage, expiry, or any change in
+          the quality, freshness, or condition of such goods, irrespective of the cause, including delay or transit
+          conditions.</p>
+
+        <h2 id="s13">13. Pink Rides Policy (Service Only for Women Passengers)</h2>
+        <p><strong>13.1 Purpose.</strong> Pink Rides is a dedicated ride category offered exclusively by women
+          Driver Partners, for women and children, aimed at providing a safe and comfortable travel option for women
+          passengers.</p>
+        <p><strong>13.2 Eligibility to Book.</strong></p>
+        <ul>
+          <li>Pink Rides may be booked only by a woman passenger for herself, or by any Customer booking on behalf
+            of a woman traveling alone or a woman traveling with child passenger(s).</li>
+          <li>A male passenger travelling alone, or a male passenger travelling accompanied by a woman, is not
+            allowed to book or avail a Pink Ride under any circumstance.</li>
+          <li>Pink Rides is a passenger ride service only and is not available for parcel or goods delivery
+            bookings.</li>
+        </ul>
+        <div class="warn-box">
+          <h3>⚠️ 13.3 Misuse &amp; Penalty</h3>
+          <p style="color:#7a2a10;font-size:14px;margin-bottom:8px">Booking a Pink Ride for a male passenger
+            travelling alone or accompanied by a woman, or misrepresenting the identity/gender of the traveling
+            passenger to avail this Service, constitutes a violation of these Terms. In the event of such misuse,
+            hailO reserves the right to:</p>
+          <ul>
+            <li>Cancel the ongoing or requested booking without refund;</li>
+            <li>Levy a penalty charge on the Customer's account, the amount of which will be communicated on the
+              Platform/App at the time of the violation;</li>
+            <li>Temporarily suspend or permanently deactivate the Customer's account for repeated or serious
+              violations;</li>
+            <li>Take such other action as hailO deems necessary to protect the safety and integrity of the Pink
+              Rides Service.</li>
+          </ul>
+          <p style="color:#7a2a10;font-size:14px;margin-top:8px;margin-bottom:0">hailO's decision on whether a
+            violation of this policy has occurred shall be final and binding, based on available booking
+            information, Driver Partner reports, and any other evidence available to hailO.</p>
+        </div>
+        <p><strong>13.4 Safety Commitment.</strong> hailO facilitates Pink Rides in good faith to promote women's
+          safety and does not independently verify the gender of every passenger; Customers are expected to book
+          truthfully and in accordance with this policy. hailO is not liable for any consequence arising from a
+          Customer's misuse or misrepresentation under this Section.</p>
+        <p><strong>13.5 General Terms Apply.</strong> Save as modified by this Section, all other provisions of
+          these Terms (including Sections on Liability, Driver Conduct, Cancellation, and Account Suspension) apply
+          equally to Pink Rides bookings.</p>
+
+        <h2 id="s14">14. Restricted &amp; Prohibited Items</h2>
+        <p>The Customer shall not transport any illegal, hazardous, or restricted goods, including but not limited
+          to:</p>
+        <div class="warn-box">
+          <h3>🚫 Illegal Items</h3>
+          <ul>
+            <li>Narcotics, drugs, or psychotropic substances</li>
+            <li>Smuggled or stolen goods</li>
+            <li>Counterfeit products</li>
+          </ul>
+          <h3 style="margin-top:12px">🚫 Hazardous Goods</h3>
+          <ul>
+            <li>Explosives, fireworks</li>
+            <li>Flammable liquids (petrol, diesel, chemicals)</li>
+            <li>Gas cylinders</li>
+            <li>Toxic, corrosive, or radioactive materials</li>
+          </ul>
+          <h3 style="margin-top:12px">🚫 Weapons</h3>
+          <ul>
+            <li>Firearms, ammunition</li>
+            <li>Other restricted weapons</li>
+          </ul>
+          <h3 style="margin-top:12px">🚫 High-Value Items</h3>
+          <ul>
+            <li>Cash, currency</li>
+            <li>Jewellery, valuables</li>
+            <li>Important original documents</li>
+          </ul>
+          <h3 style="margin-top:12px">🚫 Others</h3>
+          <ul>
+            <li>Animals or livestock</li>
+            <li>Human remains</li>
+            <li>Pornographic material</li>
+            <li>Gambling devices</li>
+            <li>Alcohol/tobacco where restricted by law</li>
+          </ul>
+        </div>
+        <p>If such items are found to have been transported, the Customer bears full responsibility, hailO shall
+          have zero liability, and hailO may report the matter to the appropriate authorities.</p>
+
+        <h2 id="s15">15. Liability</h2>
+        <p>hailO shall only be responsible for loss or damage that is proven to be caused solely by hailO's gross
+          negligence. hailO shall not be liable for:</p>
+        <ul>
+          <li>Indirect or consequential losses, or loss of profit/business</li>
+          <li>Delays in delivery or pickup</li>
+          <li>Acts or omissions of Driver Partners</li>
+          <li>Improper packaging by the Customer</li>
+          <li>The inherent nature or condition of the goods</li>
+          <li>Actions of third parties</li>
+        </ul>
+        <p>The burden of proof in any claim lies entirely with the Customer. In no event shall hailO's aggregate
+          liability arising out of or in connection with these Terms or the Services exceed the minimum amount
+          permitted to be excluded under Applicable Law, or such nominal amount as hailO may specify from time to
+          time.</p>
+
+        <h2 id="s16">16. Insurance Disclaimer</h2>
+        <p>hailO does not provide, arrange, or guarantee any insurance coverage for goods, passengers, or Driver
+          Partners in connection with the Services, unless expressly stated otherwise on the Platform. Any insurance
+          cover for goods in transit, passenger travel, or the vehicle used to provide the Service is the sole
+          responsibility of the Customer and/or the Driver Partner to arrange independently. hailO shall not be
+          liable for any loss, damage, injury, or claim arising from the absence, inadequacy, or lapse of any such
+          insurance.</p>
+
+        <h2 id="s17">17. Claims</h2>
+        <p>Claims relating to loss, damage, or service deficiency must be raised within <strong>24 hours</strong> of
+          delivery or completion of the ride. Claims must be accompanied by photographs, a description of the issue,
+          and any other supporting proof. hailO reserves the right to accept, reject, or request further information
+          regarding any claim. Late or incomplete claims shall be rejected.</p>
+
+        <h2 id="s18">18. Delivery &amp; Delays</h2>
+        <p>All delivery and pickup timelines provided on the Platform are estimates only. hailO is not responsible
+          for delays caused by traffic, weather, government restrictions, operational issues, or force majeure
+          events.</p>
+        <p>The Customer acknowledges that Driver Partners are human service providers and not machines, and that factors
+          such as traffic conditions, road and weather conditions, vehicle breakdowns, or other unforeseen circumstances
+          may reasonably cause delays. The estimated time displayed on the Platform is an approximation only and does not
+          constitute a guaranteed or fixed delivery/arrival time. Customers are requested to plan accordingly and exercise
+          reasonable patience in the event of such delays.</p>
+
+        <h2 id="s19">19. Cancellation</h2>
+        <p>Cancellation of a booking after vehicle/Driver Partner allocation may attract cancellation charges, which
+          will be communicated to the Customer at the time of cancellation.</p>
+
+        <h2 id="s20">20. Non-Payment &amp; Lien (Delivery Services)</h2>
+        <p>Where dues remain unpaid, hailO reserves the right to retain the goods, charge reasonable storage fees,
+          and dispose of unclaimed goods after a reasonable period, without prejudice to the Customer's continuing
+          liability for all outstanding dues.</p>
+
+        <h2 id="s21">21. Account Suspension</h2>
+        <p>hailO may suspend or terminate a Customer's access to the Platform in case of misuse of the Services,
+          fraud, repeated cancellations, violation of the Pink Rides policy, or any other breach of these Terms.</p>
+
+        <h2 id="s22">22. Account Closure by Customer</h2>
+        <p>A Customer may close their account at any time by submitting a request through the Platform or by writing
+          to hailO at the contact details provided in these Terms. Account closure shall not affect any outstanding
+          dues, pending claims, or liabilities accrued prior to the date of closure, and such obligations shall
+          continue to bind the Customer notwithstanding closure of the account.</p>
+
+        <h2 id="s23">23. Fraudulent Activity</h2>
+        <p>The Customer shall not engage in fraudulent or dishonest activities, including but not limited to
+          creating fake accounts, placing fraudulent bookings, providing false information, misusing promotional
+          offers, attempting unauthorized chargebacks, or impersonating another person. hailO reserves the right to
+          suspend or permanently terminate such accounts and initiate appropriate legal action where necessary.</p>
+
+        <h2 id="s24">24. Force Majeure</h2>
+        <p>hailO shall not be liable for any failure or delay in performance caused by events beyond its reasonable
+          control, including natural disasters, war, pandemic, strikes, or government action.</p>
+
+        <h2 id="s25">25. No Guarantee of Service</h2>
+        <p>hailO does not guarantee the availability of vehicles or Driver Partners, timely pickup or delivery, the
+          condition of goods upon delivery, or continuous, error-free operation of the Platform. All timelines are
+          best-effort estimates only.</p>
+
+        <h2 id="s26">26. GPS &amp; Network Services</h2>
+        <p>The Services rely on GPS, internet connectivity, mobile networks, and third-party technology services.
+          hailO does not guarantee the accuracy or uninterrupted availability of such services and shall not be
+          liable for delays, incorrect location information, failed bookings, or service interruptions arising from
+          technical or network-related issues beyond its reasonable control.</p>
+
+        <h2 id="s27">27. Third-Party Links &amp; Services Disclaimer</h2>
+        <p>The Platform may contain links to, or integrate with, third-party services such as maps, navigation
+          tools, and payment gateways. hailO does not control and is not responsible for the content, accuracy,
+          availability, or performance of any such third-party services, and the use of any such third-party service
+          is subject to that third party's own terms and policies.</p>
+
+        <h2 id="s28">28. Waiting Time &amp; Detention</h2>
+        <p>Driver Partner waiting time at pickup/drop locations may be chargeable. Delays caused by the Customer
+          (e.g., loading time, access issues, passenger unavailability) may attract additional charges. If goods or
+          passengers are not ready at the scheduled pickup, the booking may be cancelled with applicable charges.</p>
+
+        <h2 id="s29">29. Failed Delivery &amp; Return to Origin (RTO)</h2>
+        <p>If a delivery cannot be completed due to an incorrect address, unavailability of the consignee, or
+          refusal to accept goods, the goods may be returned to origin at additional cost, and storage/detention
+          charges may apply. hailO shall not be responsible for the condition of goods during any resulting delay.
+        </p>
+
+        <h2 id="s30">30. Access &amp; Site Conditions</h2>
+        <p>Customers must ensure safe and proper access at pickup and drop locations, including any necessary
+          permissions (e.g., society or building access). hailO is not responsible for delays due to restricted
+          access, additional labour requirements, or damage caused by site constraints.</p>
+
+        <h2 id="s31">31. Customer Misdeclaration</h2>
+        <p>If a Customer provides incorrect or misleading information regarding the nature, weight, size, or value
+          of goods, or the details of a passenger booking, hailO may refuse or cancel the Service, and the Customer
+          shall bear all resulting additional costs, with no liability accruing to hailO.</p>
+
+        <h2 id="s32">32. Damage During Transit</h2>
+        <p>hailO shall not be liable for damage arising from road conditions, traffic movement, vehicle vibration,
+          or the stacking/shifting of goods, as these are considered normal transit risks accepted by the Customer
+          at the time of booking.</p>
+
+        <h2 id="s33">33. Lost &amp; Found</h2>
+        <p>Customers are solely responsible for ensuring that all personal belongings or goods are collected upon
+          completion of the Service. If any item is left behind in a vehicle, hailO may, as a facilitation service
+          only, assist in connecting the Customer with the relevant Driver Partner. hailO does not guarantee recovery
+          of lost items and shall not be liable for any loss, damage, theft, or delay in the return of such items.
+        </p>
+
+        <h2 id="s34">34. Customer Conduct</h2>
+        <p>Customers shall behave respectfully towards Driver Partners and other users while using the Services. The
+          Customer shall not engage in abusive, threatening, violent, discriminatory, or unlawful conduct, damage any
+          vehicle or property, or create unsafe conditions during the Service. Any violation may result in
+          cancellation of the booking, suspension or termination of the Customer's account, and any other action
+          permitted under Applicable Law.</p>
+
+        <h2 id="s35">35. Driver Partner Conduct Disclaimer</h2>
+        <p>hailO is not responsible for the behaviour, language, or conduct of Driver Partners, or for any personal
+          disputes between a Customer and a Driver Partner, or for informal arrangements made outside the Platform.
+          Customers are strongly advised to conduct all interactions and payments strictly within Platform
+          guidelines, and to report any misconduct immediately through the Platform's support channels.</p>
+
+        <h2 id="s36">36. Ratings &amp; Feedback</h2>
+        <p>The Platform may allow Customers to rate and provide feedback on Driver Partners, and Driver Partners to
+          rate Customers, following completion of a Service. Ratings and feedback must be genuine, fair, and based on
+          the actual experience of the Service, and shall not contain false, defamatory, or abusive content. hailO
+          may use such ratings and feedback to monitor service quality, and reserves the right to take appropriate
+          action, including account suspension or restriction of access to certain Services, based on consistently
+          low ratings or verified misconduct.</p>
+
+        <h2 id="s37">37. Emergency Services</h2>
+        <p>hailO is not an emergency response service and shall not be used for medical emergencies, law enforcement
+          assistance, fire emergencies, or any other situation requiring immediate emergency response. Customers are
+          advised to contact the appropriate emergency services in such circumstances.</p>
+
+        <h2 id="s38">38. SOS Feature</h2>
+        <p>The SOS feature is provided solely for genuine emergencies. The Customer shall not misuse the feature by
+          triggering false alarms, prank alerts, or for any non-emergency purpose. Misuse may result in suspension or
+          termination of the Customer's account. While hailO may facilitate emergency alerts, it does not guarantee
+          an immediate response from emergency contacts, Driver Partners, or emergency services.</p>
+
+        <h2 id="s39">39. No Cash Handling Liability</h2>
+        <p>Where payment is made directly to a Driver Partner, hailO is not responsible for overpayment, fraud, or
+          non-issuance of a receipt. Customers must verify payment details before completing any transaction.</p>
+
+        <h2 id="s40">40. Data &amp; Communication Consent</h2>
+        <p>By using the Services, the Customer agrees that hailO may contact them via call, SMS, WhatsApp, email, or
+          app notifications for booking updates, service communication, and improvement of the Platform, in
+          accordance with hailO's Privacy Policy.</p>
+
+        <h2 id="s41">41. Indemnity</h2>
+        <p>The Customer agrees to indemnify and keep indemnified and hold hailO harmless, along with its officers,
+          directors, employees, and agents, from and against any claims, damages, penalties, or losses arising from:
+          (a) violation of these Terms; (b) transportation of illegal or prohibited goods; (c) misdeclaration of
+          information; (d) misuse of the Pink Rides Service; or (e) non-compliance with Applicable Laws.</p>
+
+        <h2 id="s42">42. Evidence &amp; Claim Validation</h2>
+        <p>hailO reserves the right to reject claims without sufficient supporting proof, request additional
+          documentation, and conduct internal investigations. hailO's decision on any claim shall be final and
+          binding.</p>
+
+        <h2 id="s43">43. Intellectual Property</h2>
+        <p>All intellectual property rights relating to the Platform, including the hailO name, logo, trademarks,
+          software, designs, content, graphics, and other proprietary materials, are owned by or licensed to S V
+          Sanghvi Transtrade Techno Pvt. Ltd. No Customer shall copy, reproduce, modify, distribute, reverse
+          engineer, or otherwise use any such intellectual property without prior written permission from hailO.</p>
+
+        <h2 id="s44">44. Severability</h2>
+        <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall
+          continue in full force and effect.</p>
+
+        <h2 id="s45">45. Waiver</h2>
+        <p>No failure or delay on the part of hailO in enforcing any provision of these Terms, or in exercising any
+          right or remedy available to it, shall operate as a waiver of that provision, right, or remedy. Any waiver
+          by hailO of any breach of these Terms shall not be construed as a waiver of any subsequent or continuing
+          breach.</p>
+
+        <h2 id="s46">46. Governing Law &amp; Jurisdiction</h2>
+        <p>These Terms shall be governed by the laws of India. The courts at <strong>Kolhapur, Maharashtra</strong>
+          shall have exclusive jurisdiction over any disputes arising out of or in connection with these Terms.</p>
+
+        <h2 id="s47">47. Dispute Resolution / Arbitration</h2>
+        <p>In the event of any dispute, controversy, or claim arising out of or in connection with these Terms, the
+          parties shall first attempt to resolve the matter through good-faith discussion. If the dispute is not
+          resolved within 30 (thirty) days of it being raised, it shall be referred to and finally resolved by
+          arbitration under the Arbitration and Conciliation Act, 1996, before a sole arbitrator appointed by hailO.
+          The seat and venue of arbitration shall be Kolhapur, Maharashtra. The arbitral award shall be final and
+          binding on the parties, subject to the provisions of Applicable Law.</p>
+
+        <h2 id="s48">48. Modifications</h2>
+        <p>hailO reserves the right to update or amend these Terms at any time. Continued use of the Services
+          following any such update constitutes acceptance of the revised Terms.</p>
+
+        <h2 id="s49">49. Entire Agreement</h2>
+        <p>These Terms, together with hailO's Privacy Policy, constitute the complete agreement between the Customer
+          and hailO regarding use of the Services, superseding any prior agreements or understandings.</p>
+
+        <h2 id="s50">50. Grievance Officer</h2>
+        <p>In accordance with applicable laws, including the Information Technology Act, 2000, the Digital Personal
+          Data Protection Act, 2023, and any rules, regulations, or amendments made thereunder, the following
+          Grievance Officer may be contacted for any concerns specifically relating to these Terms and Conditions:
+        </p>
+        <div class="contact-box">
+          <strong>Legal Team — S V Sanghvi Transtrade Techno Pvt. Ltd.</strong><br>
+          SH NO 1509, C Ward, Laxmipuri, Munisuvrat Plaza, Kolhapur, District Kolhapur, Maharashtra – 416002<br>
+          📧 Email: <a href="mailto:help@hailo.co.in">help@hailo.co.in</a><br>
+          ⏰ Working Hours: Monday to Friday, 10:00 a.m. to 6:00 p.m.
+        </div>
+
+        <h2 id="s51">51. Contact Details</h2>
+        <p>S V Sanghvi Transtrade Techno Pvt. Ltd. (operating as "hailO")</p>
+        <div class="contact-box">
+          <strong>S V Sanghvi Transtrade Techno Pvt. Ltd. (operating as "hailO")</strong><br>
+          SH NO 1509, C Ward, Laxmipuri, Munisuvrat Plaza, Kolhapur – 416002<br>
+          📧 Email: <a href="mailto:info@hail.co.in">info@hail.co.in</a><br>
+          ⏰ Working Hours: Monday to Saturday (10 AM – 7 PM)
+        </div>
+        <p>For any other questions, feedback, or concerns about these Terms and Conditions, please write to us at
+          <a href="mailto:info@hail.co.in">info@hail.co.in</a> and our team will respond as promptly as possible.
+        </p>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:16px">By using hailO's website, application, or
+          services, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.
+          Effective from 25th July 2026.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="ft-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+          <div class="logo-pill"><img src="whitelogo.png" alt="" height="50px" width="120px"></div>
+          <span
+            style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:1.5px;text-transform:uppercase">by
+            transtrade</span>
+        </div>
+        <p>Food, medicines, essentials, or parcels — hailO by Transtrade brings everything to your doorstep with care,
+          convenience and complete peace of mind.</p>
+        <div class="socials">
+          <div class="soc-btn">📘</div>
+          <div class="soc-btn">📸</div>
+          <div class="soc-btn">🐦</div>
+          <div class="soc-btn">💼</div>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h5>Navigate</h5>
+        <a href="index.html">Home</a><a href="index.html">About Us</a><a href="index.html">Services</a><a
+          href="index.html">FAQ</a><a href="index.html">Contact</a>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <a href="index.html">Food Delivery</a><a href="index.html">Pharmacy Delivery</a><a href="index.html">Parcel
+          Delivery</a><a href="index.html">Groceries</a><a href="index.html">Tempo Delivery</a>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <a href="mailto:help@hailoapp.com">help@hailoapp.com</a><a href="index.html">Send a Message</a><a
+          href="index.html">Partnership Enquiry</a><a href="index.html">Become a Rider</a>
+      </div>
+      <div class="ft-col">
+        <h5>Policies</h5>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <!-- <a href="refund-policy.html">Refund Policy</a><a -->
+          href="customer-policy.html">Customer Policy</a><a href="service-agreement.html">Service Agreement</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 hailO by Transtrade. All rights reserved. Made with <span>♥</span> and a lot of bike grease.</p>
+      <p>🛵 Currently delivering near you</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMob() { document.getElementById('mobNav').classList.toggle('open') }
+    window.addEventListener('scroll', () => { document.getElementById('mainNav').style.boxShadow = window.scrollY > 10 ? '0 2px 30px rgba(29,46,74,0.08)' : 'none' })
+  </script>
+</body>
+
+</html>

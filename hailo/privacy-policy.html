@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — hailO by Transtrade</title>
+  <link rel="icon" type="image/png"  href="web-app-manifest-512x512.png">
+  <style>
+    :root {
+      --navy:#1D2E4A;--navy-mid:#253a5e;--yellow:#FFD760;--orange:#FF7D4F;
+      --gradient:linear-gradient(135deg,#FFD760 0%,#FF7D4F 100%);
+      --dark:#3a3a3a;--dark-mid:#4d4d4d;--white:#ffffff;--off-white:#F8F9FC;
+      --text:#1a1a2e;--text-muted:#5a6480;--text-light:#8b95b0;
+      --border:rgba(29,46,74,0.1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,'SF Pro Display',BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+ 
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow 0.3s}
+    .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
+    .logo-img{height:52px;width:auto;object-fit:contain}
+    .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+    .nav-links a{color:var(--text-muted);text-decoration:none;font-size:14px;font-weight:600;padding:8px 16px;border-radius:100px;transition:all 0.2s;cursor:pointer}
+    .nav-links a:hover{color:var(--navy);background:var(--off-white)}
+    .nav-cta{background:var(--navy)!important;color:var(--white)!important}
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(29,46,74,0.25)!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all 0.3s}
+    .mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:16px 5%;flex-direction:column;gap:6px;z-index:199}
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{color:var(--text-muted);text-decoration:none;font-size:16px;font-weight:600;padding:12px 16px;border-radius:12px;cursor:pointer;transition:all 0.2s}
+    .mobile-nav a:hover{background:var(--off-white);color:var(--navy)}
+ 
+    /* FOOTER */
+    footer{background:var(--navy);padding:80px 8% 40px}
+    .footer-top{display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:40px;max-width:1300px;margin:0 auto 60px}
+    .ft-brand{flex:2;min-width:0}
+    .ft-col{flex:1;min-width:0}
+    .ft-brand p{font-size:14px;color:rgba(255,255,255,0.4);line-height:1.8;font-weight:300;margin:16px 0 24px;max-width:300px}
+    .ft-col h5{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:20px}
+    .ft-col a{display:block;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:12px;cursor:pointer;transition:color 0.2s;font-weight:500}
+    .ft-col a:hover{color:var(--yellow)}
+    .footer-bottom{max-width:1300px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-size:13px;color:rgba(255,255,255,0.28);font-weight:400}
+    .footer-bottom p span{color:var(--orange)}
+    .socials{display:flex;gap:8px}
+    .soc-btn{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:all 0.2s}
+    .soc-btn:hover{background:rgba(255,255,255,0.1)}
+    .logo-pill{background:var(--navy);color:var(--yellow);font-size:17px;font-weight:800;padding:6px 14px;border-radius:100px;letter-spacing:-0.5px;line-height:1;display:flex;align-items:center;gap:2px}
+    .logo-pill .logo-o{color:var(--orange)}
+ 
+    /* PAGE */
+    .page-wrap{padding-top:68px;min-height:100vh;background:var(--off-white)}
+    .pol-hero{background:var(--navy);padding:80px 8% 70px;position:relative;overflow:hidden}
+    .pol-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 80% 50%,rgba(255,215,96,0.08) 0%,transparent 60%)}
+    .pol-hero-inner{position:relative;z-index:2;max-width:720px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,215,96,0.12);border:1px solid rgba(255,215,96,0.28);border-radius:100px;padding:7px 16px;font-size:11px;font-weight:700;color:var(--yellow);letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+    .badge-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;display:inline-block}
+    .pol-hero h1{font-size:clamp(36px,5vw,60px);font-weight:800;color:white;letter-spacing:-2px;line-height:1;margin-bottom:16px}
+    .pol-hero p{color:rgba(255,255,255,0.55);font-size:16px;font-weight:300}
+    .layout{display:grid;grid-template-columns:220px 1fr;gap:40px;max-width:1100px;margin:0 auto;padding:60px 5% 100px;align-items:start}
+    .toc{position:sticky;top:90px;background:white;border-radius:16px;border:1px solid var(--border);padding:24px;box-shadow:0 4px 24px rgba(29,46,74,0.05)}
+    .toc h4{font-size:11px;font-weight:700;color:var(--text-muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .toc a{display:block;font-size:13px;color:var(--text-muted);text-decoration:none;padding:7px 10px;border-radius:8px;margin-bottom:2px;font-weight:500;transition:all 0.2s}
+    .toc a:hover{background:var(--off-white);color:var(--navy)}
+    .card{background:white;border-radius:20px;padding:52px;border:1px solid var(--border);box-shadow:0 4px 40px rgba(29,46,74,0.06)}
+    .card h2{font-size:18px;font-weight:800;color:var(--navy);margin:40px 0 12px;padding-left:14px;border-left:3px solid var(--orange);scroll-margin-top:90px}
+    .card h2:first-of-type{margin-top:0}
+    .card h3{font-size:15px;font-weight:700;color:var(--navy);margin:18px 0 8px}
+    .card p{font-size:15px;color:var(--dark-mid);line-height:1.85;margin-bottom:14px}
+    .card ul{padding-left:22px;margin-bottom:16px}
+    .card li{font-size:15px;color:var(--dark-mid);line-height:1.7;margin-bottom:6px}
+    .card a{color:var(--orange);text-decoration:none;font-weight:600}
+    .card a:hover{text-decoration:underline}
+    .card strong{color:var(--navy);font-weight:700}
+    .contact-box{background:var(--off-white);border:1px solid var(--border);border-radius:16px;padding:28px 32px;margin-top:12px;font-size:15px;line-height:2;color:var(--dark-mid)}
+    .note-box{background:rgba(255,215,96,0.1);border:1px solid rgba(255,215,96,0.3);border-radius:14px;padding:18px 22px;margin:16px 0;font-size:14px;color:var(--dark-mid);line-height:1.7}
+    .updated{font-size:13px;color:var(--text-muted);margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+ 
+    @media(max-width:1024px){.footer-top{flex-wrap:wrap;gap:40px}.ft-brand{flex:1 1 100%}.ft-col{flex:1 1 calc(25% - 30px);min-width:140px}.layout{grid-template-columns:1fr}.toc{position:static}}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}footer{padding:60px 5% 32px}.footer-top{flex-direction:column;gap:32px}.ft-brand,.ft-col{flex:1 1 100%}.footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}}
+    @media(max-width:600px){.card{padding:28px 24px}.pol-hero{padding:60px 5% 50px}}
+  </style>
+</head>
+<body>
+ 
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="hailO" class="logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html">About</a></li>
+    <li><a href="index.html">Services</a></li>
+    <li><a href="index.html">FAQ</a></li>
+    <li><a href="index.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mobNav">
+  <a href="index.html">Home</a>
+  <a href="index.html">About</a>
+  <a href="index.html">Services</a>
+  <a href="index.html">FAQ</a>
+  <a href="index.html" style="color:var(--navy);font-weight:800">Contact Us</a>
+</div>
+ 
+<div class="page-wrap">
+  <div class="pol-hero">
+    <div class="pol-hero-inner">
+      <div class="badge"><span class="badge-dot"></span> Legal</div>
+      <h1>Privacy Policy</h1>
+      <p>How hailO collects, uses, and protects your personal information</p>
+      <p style="margin-top:8px;font-size:13px;color:rgba(255,255,255,0.4)">Effective from 25th July 2026</p>
+    </div>
+  </div>
+
+  <div class="layout">
+
+    <div class="toc">
+      <h4>Contents</h4>
+      <a href="#s1">1. Introduction &amp; Acceptance</a>
+      <a href="#s2">2. Definitions</a>
+      <a href="#s3">3. Information We Collect</a>
+      <a href="#s4">4. How We Use Your Information</a>
+      <a href="#s5">5. How We Share Your Information</a>
+      <a href="#s6">6. Data Retention</a>
+      <a href="#s7">7. Account Deletion</a>
+      <a href="#s8">8. Data Security</a>
+      <a href="#s9">9. International Data Transfers</a>
+      <a href="#s10">10. Your Choices &amp; Rights</a>
+      <a href="#s11">11. Prohibited Content &amp; Activities</a>
+      <a href="#s12">12. Children's Privacy</a>
+      <a href="#s13">13. Third-Party Links Disclaimer</a>
+      <a href="#s14">14. Governing Law &amp; Jurisdiction</a>
+      <a href="#s15">15. Severability</a>
+      <a href="#s16">16. Grievance Officer</a>
+      <a href="#s17">17. Contact Us</a>
+    </div>
+
+    <div class="card">
+
+      <h2 id="s1">1. Introduction and Acceptance</h2>
+      <p>S V Sanghvi Transtrade Techno Private Limited ("hailO", "the Company", "we",
+            "our", or "us") operates the hailO platform, connecting Customers with goods-
+            delivery, logistics and passenger ride-hailing services — including the women-only
+            Pink Rides service — through a network of Driver Partners, District Transport
+            Associates ("DTA") and Travel Associates ("TA"). This Privacy Policy explains what
+            information we gather, how we use and share it, and the choices available to you. It
+            applies to our website, our Customer and Driver Partner mobile applications
+            (together, the "hailO Apps"), and to any offline interactions we may have with you,
+            such as phone or email support, all of which are together referred to as the
+            "Services".</p>
+      <p>This Privacy Policy applies to Customers, Driver Partners, District Transport
+            Associates (DTAs), Travel Associates (TAs), visitors to our website, and any other
+            person using or interacting with the Services.</p>
+      <p>This Policy forms part of, and should be read together with, hailO's Customer
+            Terms and Conditions and the applicable Driver Partner, DTA and TA work
+            agreements. By creating an account, booking a ride or delivery, or otherwise using
+            the Services, you confirm that you have read and accepted this Policy. If any part of
+            this Policy is unacceptable to you, please refrain from using the hailO Apps.</p>
+      <p>hailO may revise this Policy periodically to reflect changes in our practices or in
+            applicable law. Material changes will be indicated by updating the effective date at
+            the top of this page, and, where required, we will notify you through the hailO Apps
+            or by email.</p>
+
+      <h2 id="s2">2. Definitions</h2>
+      <ul>
+        <li><strong>"Device"</strong> means any computer, smartphone, tablet or other equipment used to access the hailO Apps.</li>
+        <li><strong>"Device Identifier"</strong> means the IP address, advertising ID or other unique identifier associated with a Device.</li>
+        <li><strong>"Driver Partner"</strong> means an individual who provides delivery or ride-hailing Services through the hailO Apps, whether directly or through a DTA or TA.</li>
+        <li><strong>"DTA"</strong> means a District Transport Associate engaged under a DTA Work Agreement to manage Driver Partners within a designated territory.</li>
+        <li><strong>"TA"</strong> means a Travel Associate engaged under a TA Work Agreement to manage Driver Partners providing passenger ride-hailing Services.</li>
+        <li><strong>"Personal Information"</strong> means any information that identifies or could reasonably be used to identify you, including your name, address, email and mobile number.</li>
+        <li><strong>"Service Provider"</strong> means a third party engaged by hailO to perform functions on our behalf, such as payment processing, background verification, cloud hosting or customer support.</li>
+        <li><strong>"Usage Data"</strong> means technical and behavioural data collected automatically as you interact with the hailO Apps, such as app-navigation patterns, session length and device information.</li>
+      </ul>
+
+      <h2 id="s3">3. Information We Collect</h2>
+      <h3>3.1 Information You Give Us</h3>
+      <p>When you register on the hailO Apps or otherwise interact with us, we may ask for
+          information such as your full name, email address, mobile number, residential or
+          delivery address, PIN code, and a password or authentication credential. Driver
+          Partners, DTAs and TAs are additionally asked to furnish KYC documents, vehicle
+          registration and insurance papers, pollution-certification, bank account details,
+          and any other document reasonably needed to verify eligibility and
+          roadworthiness.</p>
+
+      <h3>3.2 Information Collected Automatically</h3>
+      <p>As you use the hailO Apps, our systems and those of our Service Providers
+          automatically record certain Usage Data, including the browser or app version you
+          use, pages or screens viewed, the source that directed you to the Apps,
+          timestamps, crash logs and Device Identifiers. We rely on this data to keep the
+          Apps stable, secure and responsive to how people actually use them.</p>
+
+      <h3>3.3 Location Information</h3>
+      <p>Where you permit location access, we collect precise or approximate GPS
+          coordinates from your Device and, during an active trip or delivery, from the Driver
+          Partner's Device. Most GPS-enabled phones can pinpoint a location to within
+          roughly 15 metres. Location data is used to match you with nearby Driver Partners,
+          calculate fares and the per-trip recharge amount, generate accurate pickup and
+          drop instructions, support in-trip safety features, and produce trip receipts.</p>
+      <p>The hailO Driver App may continue to capture location data in the background
+          during an active trip, even when the app is not in the foreground of the Driver
+          Partner's Device. This location trail is archived together with the corresponding
+          trip data and may be retained for an extended period. We use this archived location
+          data to reconstruct and display the route taken by the Driver Partner between the
+          pickup point and the drop point. </p>
+
+        <h3>3.4 Mobile Application Data</h3>
+      <p>Where the Services are accessed through a hailO App, we may additionally collect your device manufacturer and model, 
+        operating system and version, preferred language, and network carrier. We access only the OTP messages required to verify your mobile number or 
+        authenticate payments. We do not access, read or collect your personal SMS messages.</p>
+
+      <h3>3.5 Application Permissions</h3>
+      <p>Depending on the features you use, the hailO Apps may request access to your Device's location, camera, 
+        photo gallery, contacts, notifications and SMS (for OTP verification only). These permissions are used solely to provide and improve the Services. 
+        You may manage or revoke these permissions at any time through your Device settings, although doing so may limit certain functionality of the Services.</p>
+
+      <h3>3.6 Calls, Chats and Support Interactions</h3>
+      <p>Calls made to our support lines and in-app chat conversations may be recorded or logged for quality assurance, 
+        dispute resolution, fraud prevention and Driver Partner training purposes.</p>
+
+      <h3>3.7 Emergency Contacts, Trip-Sharing and Referrals</h3>
+      <p>If you add an emergency contact within the hailO Apps, we store that person's name and phone number so that we can share your live trip status with them, 
+        including during a safety escalation. If you use a referral feature or book a trip on behalf of someone in your contacts, 
+        we collect and use the relevant contact's name and mobile number solely to complete that request or extend a referral invitation.</p>
+
+      <h3>3.8 Information from Third Parties</h3>
+      <p>We may supplement the information described above with data obtained from identity-verification and background-check agencies engaged on our behalf, 
+        payment partners, and, where legally permitted, publicly available sources,
+        in order to validate the identity and eligibility of Customers and Driver Partners.</p>
+
+      <h3>3.9 Cookies and Similar Technologies</h3>
+      <p>Our website and Apps use cookies and comparable technologies (such as local storage and SDK-based identifiers) to remember your preferences, 
+        keep you signed in, measure traffic patterns, and understand which features are most used. You can control cookies through your browser or Device settings; 
+        disabling them may limit certain functionality. We do not control cookies placed independently by third parties whose content or advertisements may 
+        appear within the Services, and this Policy does not extend to those third-party cookies.</p>
+
+      <h2 id="s4">4. How We Use Your Information</h2>
+      <p>We use the information described above to:</p>
+      <ul>
+        <li>create and manage your account and authenticate you when you sign in;</li>
+        <li>connect Customers with available Driver Partners, DTAs and TAs and facilitate the requested delivery or ride, including Pink Rides;</li>
+        <li>calculate fares, process payments, and compute the per-trip recharge amount and associated DTA/TA commissions;</li>
+        <li>provide customer support, respond to queries, and resolve complaints or disputes;</li>
+        <li>send trip confirmations, receipts, safety alerts and other service-related communications;</li>
+        <li>monitor, troubleshoot and improve the performance, security and usability of the hailO Apps;</li>
+        <li>detect, investigate and prevent fraud, unauthorised access and other prohibited activity;</li>
+        <li>conduct internal analytics and research to improve service coverage and quality;</li>
+        <li>comply with applicable law, regulatory requests, and our contractual obligations; and</li>
+        <li>with your consent, send you promotional messages, offers or market-research communications by email, SMS, push notification or call.</li>
+      </ul>
+      <p>You may opt out of promotional communications at any time, in line with the Telecom Commercial Communications Customer Preference Regulations, 
+        2018, by using the in-app opt-out setting or by emailing <a href="mailto:help@hailo.co.in">help@hailo.co.in</a>. Service-related communications 
+        necessary to deliver the Services will continue even if you opt out of marketing messages.</p>
+
+      <h2 id="s5">5. How We Share Your Information</h2>
+      <h3>5.1 With Driver Partners, DTAs and TAs</h3>
+      <p>To fulfil a booking, we share the Customer's name, pickup/drop location and contact number with the assigned Driver Partner, and, where relevant, with the DTA or TA responsible for that Driver Partner, strictly for the purpose of completing the trip or delivery.</p>
+
+      <h3>5.2 With Service Providers</h3>
+      <p>We engage Service Providers to host our infrastructure, process payments, perform identity and background verification, provide customer support tooling, deliver SMS/email notifications, and carry out analytics. These Service Providers may access Personal Information only to the extent needed to perform their function for us, under contractual confidentiality and data-protection obligations no less protective than this Policy.</p>
+      <p>We may engage third-party technology providers for cloud hosting, analytics, mapping, crash reporting and communication services. These providers process information only on our behalf and in accordance with applicable law and contractual confidentiality obligations.</p>
+
+      <h3>5.3 For Legal and Safety Reasons</h3>
+      <p>We may disclose information to courts, regulators, law-enforcement authorities or other government agencies where required by applicable law, in response to a valid legal process, or where we believe in good faith that disclosure is necessary to protect the rights, property or safety of hailO, our users, Driver Partners, DTAs, TAs or the public, or to investigate suspected fraud or illegal activity.</p>
+
+      <h3>5.4 Business Transfers</h3>
+      <p>If hailO is involved in a merger, acquisition, restructuring, or sale of all or substantially all of its assets, Personal Information may be transferred to the successor entity as part of that transaction, subject to that entity honouring the commitments made in this Policy.</p>
+
+      <h3>5.5 With Your Consent</h3>
+      <p>Where you choose to participate in a co-branded offer, contest, or promotion involving a named third party, or where you elect to share ride details with a chosen contact, the relevant information will be shared with that third party in accordance with the terms disclosed to you at the time.</p>
+
+      <h3>5.6 Payment Processing</h3>
+      <p>Payment transactions are processed between the Driver Partner and the Customer directly. hailO does not store any debit card, credit card or UPI credentials on its own systems.</p>
+      <p>We do not sell, rent or trade your Personal Information to third parties for their independent marketing purposes.</p>
+
+      <h2 id="s6">6. Data Retention</h2>
+      <p>We retain Personal Information only for as long as reasonably necessary to fulfil the purposes described in this Policy, to comply with our legal, tax and accounting obligations, and to resolve disputes. Where retention is no longer necessary, we securely delete or anonymise the information, subject to any longer retention period mandated by applicable law.</p>
+
+      <h2 id="s7">7. Account Deletion</h2>
+      <p>You may request deletion of your hailO account by contacting us through the hailO Apps or by emailing <a href="mailto:help@hailo.co.in">help@hailo.co.in</a>. Upon receiving a valid request, we will delete or anonymise your Personal Information within a reasonable period, except where retention is required by applicable law or is necessary for fraud prevention, dispute resolution, taxation, legal claims or regulatory compliance.</p>
+
+      <h2 id="s8">8. Data Security</h2>
+      <p>We maintain administrative, technical and physical safeguards designed to protect Personal Information against unauthorised access, alteration, disclosure or destruction, in line with applicable data protection laws, including the <strong>Digital Personal Data Protection Act, 2023</strong>, the <strong>Information Technology Act, 2000</strong>, and any rules, regulations or amendments made thereunder, as applicable. While we work to protect your information, no method of transmission or storage is completely secure, and you play a role too — please keep your account credentials confidential and notify us promptly of any suspected unauthorised use of your account.</p>
+
+      <h2 id="s9">9. International Data Transfers</h2>
+      <p>Your Personal Information may be processed or stored on servers located within or outside India where permitted by applicable law. Where such transfers occur, hailO will implement reasonable safeguards to ensure that your Personal Information continues to receive an appropriate level of protection.</p>
+
+      <h2 id="s10">10. Your Choices and Rights</h2>
+      <p>You may access, review or request correction of the Personal Information you have provided by writing to us at <a href="mailto:help@hailo.co.in">help@hailo.co.in</a>. You may withdraw any consent previously given by contacting us in writing; please note that withdrawing consent for certain data may mean we are unable to continue providing the corresponding Service. You may also request a copy of the Personal Information we hold about you, and we will provide it within a reasonable time, subject to verification of your identity.</p>
+
+      <h2 id="s11">11. Prohibited Content and Activities</h2>
+      <p>In line with Rule 3(1)(b) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, you agree not to upload, post, transmit or share through the hailO Apps any content that:</p>
+      <ul>
+        <li>you do not have the lawful right to share;</li>
+        <li>is obscene, pornographic, paedophilic, defamatory, harassing, or invasive of another person's privacy, including bodily privacy;</li>
+        <li>is harmful to a child;</li>
+        <li>infringes any patent, trademark, copyright or other proprietary right;</li>
+        <li>is knowingly false or misleading and likely to be taken as fact;</li>
+        <li>impersonates any person or misrepresents your affiliation with any person or entity;</li>
+        <li>threatens public order, national security, or the sovereignty and integrity of India, or incites the commission of any offence;</li>
+        <li>contains malicious code, viruses or anything designed to disrupt any computer resource; or</li>
+        <li>otherwise violates any applicable law.</li>
+      </ul>
+      <div class="note-box">⚖️ Where we determine, acting reasonably, that a user has violated this section or any other provision of this Policy or our Terms and Conditions, we reserve the right to remove the offending content, suspend, or terminate that user's access to the hailO Apps.</div>
+
+      <h2 id="s12">12. Children's Privacy</h2>
+      <p>The hailO Apps are intended for use by individuals who are at least 18 years of age or who otherwise have the legal capacity to enter into a binding contract under Indian law. We do not knowingly collect Personal Information from children. If we become aware that we have inadvertently collected information from a minor without appropriate consent, we will take steps to delete it.</p>
+
+      <h2 id="s13">13. Third-Party Links Disclaimer</h2>
+      <p>The hailO Apps or website may contain links to third-party websites or services. hailO does not control and is not responsible for the privacy practices or content of such third parties. We encourage you to review the privacy policy of any third-party website or service before providing any information to it.</p>
+
+      <h2 id="s14">14. Governing Law and Jurisdiction</h2>
+      <p>This Privacy Policy shall be governed by and construed in accordance with the laws of India. Subject to applicable law, the courts at <strong>Kolhapur, Maharashtra</strong> shall have exclusive jurisdiction over any dispute arising out of or in connection with this Policy.</p>
+
+      <h2 id="s15">15. Severability</h2>
+      <p>If any provision of this Privacy Policy is held by a court or other authority of competent jurisdiction to be invalid, illegal, or unenforceable, such provision shall be modified to the minimum extent necessary to make it valid, legal, and enforceable. If such modification is not possible, the provision shall be deemed severed from this Privacy Policy, and the remaining provisions shall continue in full force and effect.</p>
+
+      <h2 id="s16">16. Grievance Officer</h2>
+      <p>In accordance with applicable data protection laws, including the Digital Personal Data Protection Act, 2023, the Information Technology Act, 2000, and any rules, regulations or amendments made thereunder, as applicable, the following Grievance Officer may be contacted for any concerns specifically relating to this Privacy Policy:</p>
+      <div class="contact-box">
+        <strong>Legal Team — S V Sanghvi Transtrade Techno Private Limited</strong><br>
+        Office No. SF-21 & 22A, Munisuvrat Plaza<br>
+        1509, C Ward, Laxmipuri <br>
+        Kolhapur - 416002, Maharashtra, India<br>
+        📧 <a href="mailto:help@hailo.co.in">help@hailo.co.in</a><br>
+        ⏰ Monday to Friday, 10:00 a.m. to 6:00 p.m.
+      </div>
+
+      <h2 id="s17">17. Contact Us</h2>
+      <p>For any other questions, feedback or concerns about this Privacy Policy or your Personal Information, please write to us at <a href="mailto:help@hailo.co.in">help@hailo.co.in</a> and our team will respond as promptly as possible.</p>
+
+      <p class="updated">Effective from 25th July 2026. © 2026 S V SANGHVI TRANSTRADE TECHNO PRIVATE LIMITED. All rights reserved.</p>
+    </div>
+  </div>
+</div>
+
+
+      <!-- <h3>3.4 Mobile Application Data</h3>
+      <p>Where the Services are accessed through a hailO App, we may additionally collect your device manufacturer and model, operating system and version, preferred language, and network carrier. We access only the OTP messages required to verify your mobile number or authenticate payments. We do not access, read or collect your personal SMS messages.</p>
+
+      <h3>3.5 Application Permissions</h3>
+      <p>Depending on the features you use, the hailO Apps may request access to your Device's location, camera, photo gallery, contacts, notifications and SMS (for OTP verification only). These permissions are used solely to provide and improve the Services. You may manage or revoke these permissions at any time through your Device settings, although doing so may limit certain functionality of the Services.</p>
+
+      <h3>3.6 Calls, Chats and Support Interactions</h3>
+      <p>Calls made to our support lines and in-app chat conversations may be recorded or logged for quality assurance, dispute resolution, fraud prevention and Driver Partner training purposes.</p>
+
+      <h3>3.7 Emergency Contacts, Trip-Sharing and Referrals</h3>
+      <p>If you add an emergency contact within the hailO Apps, we store that person's name and phone number so that we can share your live trip status with them, including during a safety escalation. If you use a referral feature or book a trip on behalf of someone in your contacts, we collect and use the relevant contact's name and mobile number solely to complete that request or extend a referral invitation.</p>
+
+      <h3>3.8 Information from Third Parties</h3>
+      <p>We may supplement the information described above with data obtained from identity-verification and background-check agencies engaged on our behalf, payment partners, and, where legally permitted, publicly available sources, in order to validate the identity and eligibility of Customers and Driver Partners.</p>
+
+      <h3>3.9 Cookies and Similar Technologies</h3>
+      <p>Our website and Apps use cookies and comparable technologies (such as local storage and SDK-based identifiers) to remember your preferences, keep you signed in, measure traffic patterns, and understand which features are most used. You can control cookies through your browser or Device settings; disabling them may limit certain functionality. We do not control cookies placed independently by third parties whose content or advertisements may appear within the Services, and this Policy does not extend to those third-party cookies.</p>
+
+      <h2 id="s4">4. How We Use Your Information</h2>
+      <p>We use the information described above to:</p>
+      <ul>
+        <li>create and manage your account and authenticate you when you sign in;</li>
+        <li>connect Customers with available Driver Partners, DTAs and TAs and facilitate the requested delivery or ride, including Pink Rides;</li>
+        <li>calculate fares, process payments, and compute the per-trip recharge amount and associated DTA/TA commissions;</li>
+        <li>provide customer support, respond to queries, and resolve complaints or disputes;</li>
+        <li>send trip confirmations, receipts, safety alerts and other service-related communications;</li>
+        <li>monitor, troubleshoot and improve the performance, security and usability of the hailO Apps;</li>
+        <li>detect, investigate and prevent fraud, unauthorised access and other prohibited activity;</li>
+        <li>conduct internal analytics and research to improve service coverage and quality;</li>
+        <li>comply with applicable law, regulatory requests, and our contractual obligations; and</li>
+        <li>with your consent, send you promotional messages, offers or market-research communications by email, SMS, push notification or call.</li>
+      </ul>
+      <p>You may opt out of promotional communications at any time, in line with the Telecom Commercial Communications Customer Preference Regulations, 2018, by using the in-app opt-out setting or by emailing <a href="mailto:help@hailo.co.in">help@hailo.co.in</a>. Service-related communications necessary to deliver the Services will continue even if you opt out of marketing messages.</p>
+
+      <h2 id="s5">5. How We Share Your Information</h2>
+      <h3>5.1 With Driver Partners, DTAs and TAs</h3>
+      <p>To fulfil a booking, we share the Customer's name, pickup/drop location and contact number with the assigned Driver Partner, and, where relevant, with the DTA or TA responsible for that Driver Partner, strictly for the purpose of completing the trip or delivery.</p>
+
+      <h3>5.2 With Service Providers</h3>
+      <p>We engage Service Providers to host our infrastructure, process payments, perform identity and background verification, provide customer support tooling, deliver SMS/email notifications, and carry out analytics. These Service Providers may access Personal Information only to the extent needed to perform their function for us, under contractual confidentiality and data-protection obligations no less protective than this Policy.</p>
+      <p>We may engage third-party technology providers for cloud hosting, analytics, mapping, crash reporting and communication services. These providers process information only on our behalf and in accordance with applicable law and contractual confidentiality obligations.</p>
+
+      <h3>5.3 For Legal and Safety Reasons</h3>
+      <p>We may disclose information to courts, regulators, law-enforcement authorities or other government agencies where required by applicable law, in response to a valid legal process, or where we believe in good faith that disclosure is necessary to protect the rights, property or safety of hailO, our users, Driver Partners, DTAs, TAs or the public, or to investigate suspected fraud or illegal activity.</p>
+
+      <h3>5.4 Business Transfers</h3>
+      <p>If hailO is involved in a merger, acquisition, restructuring, or sale of all or substantially all of its assets, Personal Information may be transferred to the successor entity as part of that transaction, subject to that entity honouring the commitments made in this Policy.</p>
+
+      <h3>5.5 With Your Consent</h3>
+      <p>Where you choose to participate in a co-branded offer, contest, or promotion involving a named third party, or where you elect to share ride details with a chosen contact, the relevant information will be shared with that third party in accordance with the terms disclosed to you at the time.</p>
+
+      <h3>5.6 Payment Processing</h3>
+      <p>Payment transactions are processed between the Driver Partner and the Customer directly. hailO does not store any debit card, credit card or UPI credentials on its own systems.</p>
+      <p>We do not sell, rent or trade your Personal Information to third parties for their independent marketing purposes.</p>
+
+      <h2 id="s6">6. Data Retention</h2>
+      <p>We retain Personal Information only for as long as reasonably necessary to fulfil the purposes described in this Policy, to comply with our legal, tax and accounting obligations, and to resolve disputes. Where retention is no longer necessary, we securely delete or anonymise the information, subject to any longer retention period mandated by applicable law.</p>
+
+      <h2 id="s7">7. Account Deletion</h2>
+      <p>You may request deletion of your hailO account by contacting us through the hailO Apps or by emailing <a href="mailto:help@hailo.co.in">help@hailo.co.in</a>. Upon receiving a valid request, we will delete or anonymise your Personal Information within a reasonable period, except where retention is required by applicable law or is necessary for fraud prevention, dispute resolution, taxation, legal claims or regulatory compliance.</p>
+
+      <h2 id="s8">8. Data Security</h2>
+      <p>We maintain administrative, technical and physical safeguards designed to protect Personal Information against unauthorised access, alteration, disclosure or destruction, in line with applicable data protection laws, including the <strong>Digital Personal Data Protection Act, 2023</strong>, the <strong>Information Technology Act, 2000</strong>, and any rules, regulations or amendments made thereunder, as applicable. While we work to protect your information, no method of transmission or storage is completely secure, and you play a role too — please keep your account credentials confidential and notify us promptly of any suspected unauthorised use of your account.</p>
+
+      <h2 id="s9">9. International Data Transfers</h2>
+      <p>Your Personal Information may be processed or stored on servers located within or outside India where permitted by applicable law. Where such transfers occur, hailO will implement reasonable safeguards to ensure that your Personal Information continues to receive an appropriate level of protection.</p>
+
+      <h2 id="s10">10. Your Choices and Rights</h2>
+      <p>You may access, review or request correction of the Personal Information you have provided by writing to us at <a href="mailto:help@hailo.co.in">help@hailo.co.in</a>. You may withdraw any consent previously given by contacting us in writing; please note that withdrawing consent for certain data may mean we are unable to continue providing the corresponding Service. You may also request a copy of the Personal Information we hold about you, and we will provide it within a reasonable time, subject to verification of your identity.</p>
+
+      <h2 id="s11">11. Prohibited Content and Activities</h2>
+      <p>In line with Rule 3(1)(b) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, you agree not to upload, post, transmit or share through the hailO Apps any content that:</p>
+      <ul>
+        <li>you do not have the lawful right to share;</li>
+        <li>is obscene, pornographic, paedophilic, defamatory, harassing, or invasive of another person's privacy, including bodily privacy;</li>
+        <li>is harmful to a child;</li>
+        <li>infringes any patent, trademark, copyright or other proprietary right;</li>
+        <li>is knowingly false or misleading and likely to be taken as fact;</li>
+        <li>impersonates any person or misrepresents your affiliation with any person or entity;</li>
+        <li>threatens public order, national security, or the sovereignty and integrity of India, or incites the commission of any offence;</li>
+        <li>contains malicious code, viruses or anything designed to disrupt any computer resource; or</li>
+        <li>otherwise violates any applicable law.</li>
+      </ul>
+      <div class="note-box">⚖️ Where we determine, acting reasonably, that a user has violated this section or any other provision of this Policy or our Terms and Conditions, we reserve the right to remove the offending content, suspend, or terminate that user's access to the hailO Apps.</div>
+
+      <h2 id="s12">12. Children's Privacy</h2>
+      <p>The hailO Apps are intended for use by individuals who are at least 18 years of age or who otherwise have the legal capacity to enter into a binding contract under Indian law. We do not knowingly collect Personal Information from children. If we become aware that we have inadvertently collected information from a minor without appropriate consent, we will take steps to delete it.</p>
+
+      <h2 id="s13">13. Third-Party Links Disclaimer</h2>
+      <p>The hailO Apps or website may contain links to third-party websites or services. hailO does not control and is not responsible for the privacy practices or content of such third parties. We encourage you to review the privacy policy of any third-party website or service before providing any information to it.</p>
+
+      <h2 id="s14">14. Governing Law and Jurisdiction</h2>
+      <p>This Privacy Policy shall be governed by and construed in accordance with the laws of India. Subject to applicable law, the courts at <strong>Kolhapur, Maharashtra</strong> shall have exclusive jurisdiction over any dispute arising out of or in connection with this Policy.</p>
+
+      <h2 id="s15">15. Severability</h2>
+      <p>If any provision of this Privacy Policy is held by a court or other authority of competent jurisdiction to be invalid, illegal, or unenforceable, such provision shall be modified to the minimum extent necessary to make it valid, legal, and enforceable. If such modification is not possible, the provision shall be deemed severed from this Privacy Policy, and the remaining provisions shall continue in full force and effect.</p>
+
+      <h2 id="s16">16. Grievance Officer</h2>
+      <p>In accordance with applicable data protection laws, including the Digital Personal Data Protection Act, 2023, the Information Technology Act, 2000, and any rules, regulations or amendments made thereunder, as applicable, the following Grievance Officer may be contacted for any concerns specifically relating to this Privacy Policy:</p>
+      <div class="contact-box">
+        <strong>Legal Team — S V Sanghvi Transtrade Techno Private Limited</strong><br>
+        Office No. SF-21 & 22A, Munisuvrat Plaza<br>
+        1509, C Ward, Laxmipuri <br>
+        Kolhapur - 416002, Maharashtra, India<br>
+        📧 <a href="mailto:help@hailo.co.in">help@hailo.co.in</a><br>
+        ⏰ Monday to Friday, 10:00 a.m. to 6:00 p.m.
+      </div>
+
+      <h2 id="s17">17. Contact Us</h2>
+      <p>For any other questions, feedback or concerns about this Privacy Policy or your Personal Information, please write to us at <a href="mailto:help@hailo.co.in">help@hailo.co.in</a> and our team will respond as promptly as possible.</p>
+
+      <p class="updated">Effective from 25th July 2026. © 2026 S V SANGHVI TRANSTRADE TECHNO PRIVATE LIMITED. All rights reserved.</p>
+    </div>
+  </div>
+</div>
+  -->
+<footer>
+  <div class="footer-top">
+    <div class="ft-brand">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="logo-pill"><img src="whitelogo.png" alt="" height="50px" width="120px"></div>
+        <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:1.5px;text-transform:uppercase">by transtrade</span>
+      </div>
+      <p>Food, medicines, essentials, or parcels — hailO by Transtrade brings everything to your doorstep with care, convenience and complete peace of mind.</p>
+      <div class="socials">
+        <div class="soc-btn">📘</div><div class="soc-btn">📸</div><div class="soc-btn">🐦</div><div class="soc-btn">💼</div>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h5>Navigate</h5>
+      <a href="index.html">Home</a><a href="index.html">About Us</a><a href="index.html">Services</a><a href="index.html">FAQ</a><a href="index.html">Contact</a>
+    </div>
+    <div class="ft-col">
+      <h5>Services</h5>
+      <a href="index.html">Food Delivery</a><a href="index.html">Pharmacy Delivery</a><a href="index.html">Parcel Delivery</a><a href="index.html">Groceries</a><a href="index.html">Tempo Delivery</a>
+    </div>
+    <div class="ft-col">
+      <h5>Contact</h5>
+      <a href="mailto:help@hailoapp.com">help@hailoapp.com</a><a href="index.html">Send a Message</a><a href="index.html">Partnership Enquiry</a><a href="index.html">Become a Rider</a>
+    </div>
+    <div class="ft-col">
+      <h5>Policies</h5>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <!-- <a href="refund-policy.html">Refund Policy</a> -->
+      <a href="customer-policy.html">Customer Policy</a><a href="service-agreement.html">Service Agreement</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 hailO by Transtrade. All rights reserved. Made with <span>♥</span> and a lot of bike grease.</p>
+    <p>🛵 Currently delivering near you</p>
+  </div>
+</footer>
+ 
+<script>
+  function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
+  window.addEventListener('scroll',()=>{document.getElementById('mainNav').style.boxShadow=window.scrollY>10?'0 2px 30px rgba(29,46,74,0.08)':'none'})
+</script>
+</body>
+</html>

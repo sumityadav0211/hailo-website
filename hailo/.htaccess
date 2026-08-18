@@ -1,0 +1,12 @@
+# Prevent directory listing
+Options -Indexes
+
+# Protect environment and hidden files
+<FilesMatch "^\.(env|git|gitignore|htaccess)">
+    Require all denied
+</FilesMatch>
+
+# Disable direct access to common secret/config files
+<FilesMatch "^(composer\.json|composer\.lock|package\.json|package-lock\.json)$">
+    Require all denied
+</FilesMatch>
