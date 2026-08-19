@@ -1,4 +1,4 @@
-//Responsive code of halo  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -3000,7 +3000,45 @@
           subject: subject.value,
           message: message.value.trim()
         };
-        fetch('/api/send-email', {
+        // --------------------------------------------------
+        // EMAIL API URL
+        // --------------------------------------------------
+        // On Vercel/production, use the local serverless API.
+        // When testing this HTML with VS Code Live Server,
+        // change VERCEL_API_URL below to your real Vercel URL.
+        const VERCEL_API_URL = 'https://your-project.vercel.app/api/send-email';
+
+        const isLocal =
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          window.location.hostname === '0.0.0.0';
+
+        const API_URL = isLocal
+          ? VERCEL_API_URL
+          : '/api/send-email';
+
+        if (isLocal && VERCEL_API_URL.includes('YOUR-VERCEL-DOMAIN')) {
+          const msg = document.getElementById('submitMsg');
+          msg.textContent = '❌ Set your Vercel API URL in the HTML first.';
+          msg.style.display = 'block';
+          msg.style.color = '#d32f2f';
+          console.error(
+            'Set VERCEL_API_URL to your deployed Vercel API, for example: https://your-project.vercel.app/api/send-email'
+          );
+          return false;
+        }
+
+        const submitButton = document.querySelector('#contactForm button[type="submit"]');
+        const originalButtonHTML = submitButton ? submitButton.innerHTML : '';
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.style.opacity = '0.7';
+          submitButton.style.cursor = 'wait';
+          submitButton.innerHTML = 'Sending...';
+        }
+
+        fetch(API_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -3049,6 +3087,14 @@
               msg.style.display = 'none';
               msg.style.color = 'var(--navy-mid)';
             }, 7000);
+          })
+          .finally(function () {
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.style.opacity = '1';
+              submitButton.style.cursor = 'pointer';
+              submitButton.innerHTML = originalButtonHTML;
+            }
           });
       }
       return false;
