@@ -3005,7 +3005,8 @@
         // --------------------------------------------------
         // On Vercel/production, use the local serverless API.
         // When testing this HTML with VS Code Live Server,
-        // change VERCEL_API_URL below to your real Vercel URL.
+        // this points straight at your live Vercel deployment
+        // so both local testing AND the deployed site work.
         const VERCEL_API_URL = 'https://hailo-website-puce.vercel.app/api/send-email';
 
         const isLocal =
@@ -3017,7 +3018,7 @@
           ? VERCEL_API_URL
           : '/api/send-email';
 
-        if (isLocal && VERCEL_API_URL.includes('YOUR-VERCEL-DOMAIN')) {
+        if (isLocal && VERCEL_API_URL.includes('your-project.vercel.app')) {
           const msg = document.getElementById('submitMsg');
           msg.textContent = '❌ Set your Vercel API URL in the HTML first.';
           msg.style.display = 'block';
